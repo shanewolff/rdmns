@@ -1,201 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
 
-        <!-- Bootstrap CSS -->
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-            crossorigin="anonymous"
-        />
-        <script
-            src="https://kit.fontawesome.com/b61f39305b.js"
-            crossorigin="anonymous"
-        ></script>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <title>TTS-UPDATE-GENERATOR</title>
-    </head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/b61f39305b.js" crossorigin="anonymous"></script>
 
-    <body>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col col-md-9 col-lg-6">
-                    <br />
-                    <h4 class="text-center font-weight-bold">
-                        RDMNS-TTS PTM UPDATE GENERATOR
-                    </h4>
-                    <br />
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col col-md-9 col-lg-6">
-                    <div
-                        class="border border-primary rounded shadow"
-                        style="padding: 1rem; overflow: hidden;"
-                    >
-                        <div class="form-group">
-                            <i class="fas fa-train"></i>
-                            <label for="trainSelector" class="font-weight-bold"
-                                >Train</label
-                            >
-                            <select
-                                class="form-control"
-                                id="trainSelector"
-                                required
-                            >
-                                <option value="" disabled selected
-                                    >Choose your train</option
-                                >
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <i class="fas fa-building"></i>
-                            <label
-                                for="stationSelector"
-                                class="font-weight-bold"
-                                >Railway Station</label
-                            >
-                            <select
-                                class="form-control"
-                                id="stationSelector"
-                                required
-                            >
-                                <option value="" disabled selected
-                                    >Choose your station</option
-                                >
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-5">
-                                    <i class="fas fa-directions"></i>
-                                    <label for="" class="font-weight-bold"
-                                        >Movement</label
-                                    >
-                                </div>
-                                <div class="col-7">
-                                    <div class="form-check form-check-inline">
-                                        <input
-                                            class="form-check-input"
-                                            type="radio"
-                                            name="movementRadio"
-                                            id="inRadio"
-                                            value="in"
-                                            checked
-                                        />
-                                        <label
-                                            class="form-check-label"
-                                            for="inRadio"
-                                            >IN</label
-                                        >
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input
-                                            class="form-check-input"
-                                            type="radio"
-                                            name="movementRadio"
-                                            id="outRadio"
-                                            value="out"
-                                        />
-                                        <label
-                                            class="form-check-label"
-                                            for="outRadio"
-                                            >OUT</label
-                                        >
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input
-                                            class="form-check-input"
-                                            type="radio"
-                                            name="movementRadio"
-                                            id="passingRadio"
-                                            value="passing"
-                                        />
-                                        <label
-                                            class="form-check-label"
-                                            for="passingRadio"
-                                            >PASSING</label
-                                        >
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <i class="fas fa-clock"></i>
-                            <label for="timepicker" class="font-weight-bold"
-                                >Time</label
-                            >
-                            <input
-                                type="time"
-                                class="form-control"
-                                id="timepicker"
-                                placeholder=""
-                            />
-                        </div>
-                        <div class="float-right">
-                            <button
-                                class="btn btn-primary shadow-sm"
-                                id="upBtn"
-                                disabled
-                            >
-                                Up
-                            </button>
-                            <button
-                                class="btn btn-primary shadow-sm"
-                                id="generateBtn"
-                            >
-                                Generate
-                            </button>
-                            <button
-                                class="btn btn-primary shadow-sm"
-                                id="downBtn"
-                                disabled
-                            >
-                                Down
-                            </button>
-                        </div>
+    <title>TTS-UPDATE-GENERATOR</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-md-9 col-lg-6">
+                <div class="row">
+                    <div class="col-auto" style="margin-top: auto; margin-bottom: auto;">
+                        <img src="logo.png" alt="">
                     </div>
-                </div>
-            </div>
-            <br />
-            <div class="row justify-content-center">
-                <div class="col col-md-9 col-lg-6">
-                    <div
-                        class="text-center rounded bg-success text-white shadow"
-                        style="padding: 1em;"
-                    >
-                        <span id="generatedMessage">
-                            Generated message appears here.
-                        </span>
+                    <div class="col" style="margin-top: auto; margin-bottom: auto;">
+                        <h4 class="text-center font-weight-bold">TTS-PTM UPDATE GENERATOR</h4>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center">
+            <div class="col col-md-9 col-lg-6">
+                <div class="border border-primary rounded shadow" style="padding: 1rem; overflow: hidden;">
+                    <div class="form-group">
+                        <i class="fas fa-train"></i>
+                        <label for="trainSelector" class="font-weight-bold">Train</label>
+                        <select class="form-control" id="trainSelector" required>
+                            <option value="" disabled selected>Choose your train</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-building"></i>
+                        <label for="stationSelector" class="font-weight-bold">Railway Station</label>
+                        <select class="form-control" id="stationSelector" required>
+                            <option value="" disabled selected>Choose your station</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-5">
+                                <i class="fas fa-arrows-alt-v"></i>
+                                <label for="" class="font-weight-bold">Direction</label>
+                            </div>
+                            <div class="col-7">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="directionRadio" id="upRadio"
+                                        value="UP" />
+                                    <label class="form-check-label" for="inRadio">UP</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="directionRadio" id="downRadio"
+                                        value="DOWN" />
+                                    <label class="form-check-label" for="outRadio">DOWN</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="directionRadio" id="noneRadio"
+                                        value="" checked />
+                                    <label class="form-check-label" for="passingRadio">NONE</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-5">
+                                <i class="fas fa-directions"></i>
+                                <label for="" class="font-weight-bold">Movement</label>
+                            </div>
+                            <div class="col-7">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="movementRadio" id="inRadio"
+                                        value="in" checked />
+                                    <label class="form-check-label" for="inRadio">IN</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="movementRadio" id="outRadio"
+                                        value="out" />
+                                    <label class="form-check-label" for="outRadio">OUT</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="movementRadio" id="passingRadio"
+                                        value="passing" />
+                                    <label class="form-check-label" for="passingRadio">PASSING</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-clock"></i>
+                        <label for="timepicker" class="font-weight-bold">Time</label>
+                        <input type="time" class="form-control" id="timepicker" placeholder="" />
+                    </div>
+                    <div class="float-right">
+                        <button class="btn btn-primary shadow-sm" id="upBtn" disabled>
+                            Up
+                        </button>
+                        <button class="btn btn-primary shadow-sm" id="generateBtn">
+                            Generate
+                        </button>
+                        <button class="btn btn-primary shadow-sm" id="downBtn" disabled>
+                            Down
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="margin-top: 0.5em;">
+            <div class="col col-md-9 col-lg-6">
+                <div class="text-center rounded bg-success text-white shadow font-weight-bold" style="padding: 1em;">
+                    <span id="generatedMessage">
+                        Generated message appears here.
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="margin-top: 0.5em;" style="position: relative;">
+            <div class="col toast bg-info text-white" role="status" aria-live="polite" data-delay=1500 id="successToast"
+                style="position: absolute;">
+                <div class="toast-body text-center font-weight-bold">
+                    Message copied to clipboard
+                </div>
+            </div>
+            <div class="col-auto toast bg-danger text-white" role="alert" aria-live="assertive" data-delay=1500
+                id="errorToast" style="position: absolute;">
+                <div class="toast-body text-center font-weight-bold">
+                    Error copying the message!
+                </div>
+            </div>
+        </div>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script
-            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"
-        ></script>
-        <script src="script.js"></script>
-    </body>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
 </html>

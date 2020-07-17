@@ -1,20 +1,93 @@
-const trains = ["03:50 AM Chilaw - Panadura (Udaya Kumari)",
-    "04:20 AM Chilaw - Moratuwa (Moratu Kumari)",
-    "04:30 AM Puttalam - Mt. Lavania (Bange)",
-    "04:50 AM Chilaw - Panadura (Muthu Kumari)",
-    "05:30 AM Chilaw - Colombo-Fort (Lali)",
-    "06:15 AM Chilaw - Colombo-Fort (CFS)",
-    "06:50 AM Negombo - Colombo-Fort (Mendis)",
-    "04:10 PM Panadura - Puttalam (Bange)",
-    "04:30 PM Colombo-Fort - Chilaw (Saliya)",
-    "04:45 PM Colombo-Fort - Chilaw (Lali)",
-    "04:45 PM Panadura - Chilaw (Muthu Kumari)",
-    "04:55 PM Colombo-Fort - Negombo (Mendis)",
-    "05:30 PM Colombo-Fort - Negombo (Meepura)",
-    "05:45 PM Kalutara-South - Chilaw (CS)",
-    "08:20 PM Colombo-Fort - Chilaw (LC)"];
+const trains = [
+    "03:50 (CHL-PND) Udaya Kumari",
+    "04:20 (CHL-MRT) Moratu Kumari",
+    "04:30 (PTM-MLV) Bange",
+    "04:50 (CHL-PND) Muthu Kumari",
+    "05:30 (CHL-FOT) Lali",
+    "06:15 (CHL-FOT) CFS",
+    "06:50 (NGB-FOT) Mendis",
+    "16:10 (PND-PTM) Bange",
+    "16:30 (FOT-CHL) Saliya",
+    "16:45 (FOT-CHL) Lali",
+    "16:45 (PND-CHL) Muthu Kumari",
+    "16:55 (FOT-NGB) Mendis",
+    "17:30 (FOT-NGB) Meepura",
+    "17:45 (KTS-CHL) CS",
+    "20:20 (FOT-CHL) LC",
+];
 
-const stations = ["Noornagar", "Puttalam", "Thilladiya", "Palavi", "Erukkalam Pendu", "Madurankuliya", "Mangala-Eliya", "Mundal", "Palachchikulam", "Baththulu-Oya", "Anavilundawa", "Arachchikattuwa", "Bangadeniya", "Manuwangama", "Chilaw", "Savarana", "Kakkapalliya", "Madampe", "Nelum-Pokuna", "Kuda-Wewa", "Walahapitiya", "Nattandiya", "Thummodara", "Lunuwila", "Boralessa", "Bolawatta", "Waikkala", "Kochchikade", "Kattuwa", "Negombo", "Kurana", "Katunayaka", "IPZ-Katunayaka", "Liyanagemulla", "Seeduwa", "Alawathupitiya", "Kudahakapola", "Tudella", "Ja-Ela", "Kapuwatta", "Kandana", "Peralanda", "Ragama", "Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya", "Dematagoda", "Maradana", "Colombo-Fort", "Secretariat", "Slave Island", "Kollupitiya", "Bambalapitiya", "Wellawatta", "Dehiwala", "Mt. Lavania", "Ratmalana", "Angulana", "Lunawa", "Moratuwa", "Koralawella", "Egoda-Uyana", "Pandura", "Pinwatta", "Wadduwa", "Station-No.1", "Kalutara-North", "Kalutara-South"];
+const stations = [
+    "Noornagar",
+    "Puttalam",
+    "Thilladiya",
+    "Palavi",
+    "Erukkalam-Pendu",
+    "Madurankuliya",
+    "Mangala-Eliya",
+    "Mundal",
+    "Palachchikulam",
+    "Baththulu-Oya",
+    "Anavilundawa",
+    "Arachchikattuwa",
+    "Bangadeniya",
+    "Manuwangama",
+    "Chilaw",
+    "Savarana",
+    "Kakkapalliya",
+    "Madampe",
+    "Nelum-Pokuna",
+    "Kuda-Wewa",
+    "Walahapitiya",
+    "Nattandiya",
+    "Thummodara",
+    "Lunuwila",
+    "Boralessa",
+    "Bolawatta",
+    "Waikkala",
+    "Kochchikade",
+    "Kattuwa",
+    "Negombo",
+    "Kurana",
+    "Katunayaka",
+    "IPZ-Katunayaka",
+    "Liyanagemulla",
+    "Seeduwa",
+    "Alawathupitiya",
+    "Kudahakapola",
+    "Tudella",
+    "Ja-Ela",
+    "Kapuwatta",
+    "Kandana",
+    "Peralanda",
+    "Ragama",
+    "Horape",
+    "Enderamulla",
+    "Hunupitiya",
+    "Wanawasala",
+    "Kelaniya",
+    "Dematagoda",
+    "Maradana",
+    "Colombo-Fort",
+    "Secretariat",
+    "Slave-Island",
+    "Kollupitiya",
+    "Bambalapitiya",
+    "Wellawatta",
+    "Dehiwala",
+    "Mt.-Lavania",
+    "Ratmalana",
+    "Angulana",
+    "Lunawa",
+    "Moratuwa",
+    "Koralawella",
+    "Egoda-Uyana",
+    "Panadura",
+    "Pinwatta",
+    "Wadduwa",
+    "Station-No.1",
+    "Kalutara-North",
+    "Kalutara-South",
+];
 
 const trainSelector = document.querySelector("#trainSelector");
 const stationSelector = document.querySelector("#stationSelector");
@@ -74,7 +147,6 @@ stationSelector.addEventListener("change", (e) => {
 });
 
 generateBtn.addEventListener("click", (e) => {
-
     let trainValidation = true;
     let stationValidation = true;
 
@@ -83,26 +155,31 @@ generateBtn.addEventListener("click", (e) => {
             trainSelector.classList.add("border-danger");
         }
         if (document.querySelector("#trainRequiredMsg") === null) {
-            smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg")
-            smallElement.classList.add("text-danger");
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "trainRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
             smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(smallElement, trainSelector.nextSibling);
+            trainSelector.parentNode.insertBefore(
+                smallElement,
+                trainSelector.nextSibling
+            );
         }
 
         trainValidation = false;
-
     }
     if (stationSelector.value === "") {
         if (!stationSelector.classList.contains("border-danger")) {
             stationSelector.classList.add("border-danger");
         }
         if (document.querySelector("#stationRequiredMsg") === null) {
-            smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg")
-            smallElement.classList.add("text-danger");
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "stationRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
             smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(smallElement, stationSelector.nextSibling);
+            stationSelector.parentNode.insertBefore(
+                smallElement,
+                stationSelector.nextSibling
+            );
         }
 
         stationValidation = false;
@@ -112,11 +189,13 @@ generateBtn.addEventListener("click", (e) => {
         return;
     }
 
-
     let time;
     if (timeInput.value === "") {
         const currentDate = new Date();
-        time = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        time = currentDate.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+        });
     } else {
         time = timeInput.value;
     }
@@ -129,14 +208,23 @@ generateBtn.addEventListener("click", (e) => {
             break;
         }
     }
-    let message = `${trainSelector.value} ${movement} ${stationSelector.value} ${time}`;
+
+
+    let direction;
+    const directionRadios = document.getElementsByName("directionRadio");
+    for (let radio of directionRadios) {
+        if (radio.checked) {
+            direction = radio.value;
+            break;
+        }
+    }
+
+    let message = `${trainSelector.value} ${direction} ${movement} ${stationSelector.value} ${time}`;
     document.querySelector("#generatedMessage").textContent = message;
     copyText(document.querySelector("#generatedMessage"));
-
 });
 
 upBtn.addEventListener("click", (e) => {
-
     let trainValidation = true;
     let stationValidation = true;
 
@@ -145,26 +233,31 @@ upBtn.addEventListener("click", (e) => {
             trainSelector.classList.add("border-danger");
         }
         if (document.querySelector("#trainRequiredMsg") === null) {
-            smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg")
-            smallElement.classList.add("text-danger");
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "trainRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
             smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(smallElement, trainSelector.nextSibling);
+            trainSelector.parentNode.insertBefore(
+                smallElement,
+                trainSelector.nextSibling
+            );
         }
 
         trainValidation = false;
-
     }
     if (stationSelector.value === "") {
         if (!stationSelector.classList.contains("border-danger")) {
             stationSelector.classList.add("border-danger");
         }
         if (document.querySelector("#stationRequiredMsg") === null) {
-            smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg")
-            smallElement.classList.add("text-danger");
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "stationRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
             smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(smallElement, stationSelector.nextSibling);
+            stationSelector.parentNode.insertBefore(
+                smallElement,
+                stationSelector.nextSibling
+            );
         }
 
         stationValidation = false;
@@ -177,7 +270,10 @@ upBtn.addEventListener("click", (e) => {
     let time;
     if (timeInput.value === "") {
         const currentDate = new Date();
-        time = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        time = currentDate.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+        });
     } else {
         time = timeInput.value;
     }
@@ -187,6 +283,15 @@ upBtn.addEventListener("click", (e) => {
     for (let radio of radios) {
         if (radio.checked) {
             movement = radio.value;
+            break;
+        }
+    }
+
+    let direction;
+    const directionRadios = document.getElementsByName("directionRadio");
+    for (let radio of directionRadios) {
+        if (radio.checked) {
+            direction = radio.value;
             break;
         }
     }
@@ -209,13 +314,12 @@ upBtn.addEventListener("click", (e) => {
         }
     }
 
-    let message = `${trainSelector.value} ${movement} ${stationSelector.value} ${time}`;
+    let message = `${trainSelector.value} ${direction} ${movement} ${stationSelector.value} ${time}`;
     document.querySelector("#generatedMessage").textContent = message;
     copyText(document.querySelector("#generatedMessage"));
 });
 
 downBtn.addEventListener("click", (e) => {
-
     let trainValidation = true;
     let stationValidation = true;
 
@@ -224,26 +328,31 @@ downBtn.addEventListener("click", (e) => {
             trainSelector.classList.add("border-danger");
         }
         if (document.querySelector("#trainRequiredMsg") === null) {
-            smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg")
-            smallElement.classList.add("text-danger");
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "trainRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
             smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(smallElement, trainSelector.nextSibling);
+            trainSelector.parentNode.insertBefore(
+                smallElement,
+                trainSelector.nextSibling
+            );
         }
 
         trainValidation = false;
-
     }
     if (stationSelector.value === "") {
         if (!stationSelector.classList.contains("border-danger")) {
             stationSelector.classList.add("border-danger");
         }
         if (document.querySelector("#stationRequiredMsg") === null) {
-            smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg")
-            smallElement.classList.add("text-danger");
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "stationRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
             smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(smallElement, stationSelector.nextSibling);
+            stationSelector.parentNode.insertBefore(
+                smallElement,
+                stationSelector.nextSibling
+            );
         }
 
         stationValidation = false;
@@ -256,7 +365,10 @@ downBtn.addEventListener("click", (e) => {
     let time;
     if (timeInput.value === "") {
         const currentDate = new Date();
-        time = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        time = currentDate.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+        });
     } else {
         time = timeInput.value;
     }
@@ -266,6 +378,15 @@ downBtn.addEventListener("click", (e) => {
     for (let radio of radios) {
         if (radio.checked) {
             movement = radio.value;
+            break;
+        }
+    }
+
+    let direction;
+    const directionRadios = document.getElementsByName("directionRadio");
+    for (let radio of directionRadios) {
+        if (radio.checked) {
+            direction = radio.value;
             break;
         }
     }
@@ -288,19 +409,26 @@ downBtn.addEventListener("click", (e) => {
         }
     }
 
-    let message = `${trainSelector.value} ${movement} ${stationSelector.value} ${time}`;
+    let message = `${trainSelector.value} ${direction} ${movement} ${stationSelector.value} ${time}`;
     document.querySelector("#generatedMessage").textContent = message;
     copyText(document.querySelector("#generatedMessage"));
 });
 
 function copyText(element) {
+    try {
+        let selection = window.getSelection();
+        let range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        //add to clipboard.
+        document.execCommand("copy");
+        selection.removeAllRanges();
+        $('#successToast').toast("show");
+    }
     //Before we copy, we are going to select the text.
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(element);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    //add to clipboard.
-    document.execCommand('copy');
-    selection.removeAllRanges();
+    catch (error) {
+        $('#errorToast').toast("show");
+    }
+
 }
