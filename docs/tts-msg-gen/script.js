@@ -197,6 +197,7 @@ generateBtn.addEventListener("click", (e) => {
             minute: "2-digit",
             hour12: true
         });
+        time = time.substring(0, 6) + time.substring(5).toUpperCase();
     } else {
         selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
         const selectedTime = new Date();
@@ -206,7 +207,7 @@ generateBtn.addEventListener("click", (e) => {
             minute: "2-digit",
             hour12: true
         });
-
+        time = time.substring(0, 6) + time.substring(5).toUpperCase();
     }
 
     let movement;
@@ -284,6 +285,7 @@ upBtn.addEventListener("click", (e) => {
             minute: "2-digit",
             hour12: true
         });
+        time = time.substring(0, 6) + time.substring(5).toUpperCase();
     } else {
         selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
         const selectedTime = new Date();
@@ -293,7 +295,7 @@ upBtn.addEventListener("click", (e) => {
             minute: "2-digit",
             hour12: true
         });
-
+        time = time.substring(0, 6) + time.substring(5).toUpperCase();
     }
 
     let movement;
@@ -388,6 +390,7 @@ downBtn.addEventListener("click", (e) => {
             minute: "2-digit",
             hour12: true
         });
+        time = time.substring(0, 6) + time.substring(5).toUpperCase();
     } else {
         selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
         const selectedTime = new Date();
@@ -397,7 +400,7 @@ downBtn.addEventListener("click", (e) => {
             minute: "2-digit",
             hour12: true
         });
-
+        time = time.substring(0, 6) + time.substring(5).toUpperCase();
     }
 
     let movement;
