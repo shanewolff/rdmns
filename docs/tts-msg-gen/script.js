@@ -16,27 +16,45 @@ const trains = [
     "08:20 PM (FOT-CHL) LC",
 ];
 
+const trainsSinhala = [
+    "03:50 AM (CHL-PND) උදය කුමාරි",
+    "04:20 AM (CHL-MRT) මොරටු කුමාරි",
+    "04:30 AM (PTM-MLV) බංගෙ",
+    "04:50 AM (CHL-PND) මුතු කුමාරි",
+    "05:30 AM (CHL-FOT) එක්ස්ප්‍රස්",
+    "06:15 AM (CHL-FOT) CFS",
+    "06:50 AM (NGB-FOT) මෙන්ඩිස්",
+    "04:10 PM (PND-PTM) බංගෙ",
+    "04:30 PM (FOT-CHL) සාලිය",
+    "04:45 PM (FOT-CHL) එක්ස්ප්‍රස්",
+    "04:45 PM (PND-CHL) මුතු කුමාරි",
+    "04:55 PM (FOT-NGB) මෙන්ඩිස්",
+    "05:30 PM (FOT-NGB) මීපුර",
+    "05:45 PM (KTS-CHL) CS",
+    "08:20 PM (FOT-CHL) LC",
+];
+
 const stations = [
     "Noornagar",
     "Puttalam",
-    "Thilladiya",
+    "Thilladi",
     "Palavi",
-    "Erukkalam-Pendu",
+    "Erukkalampiddy",
     "Madurankuliya",
-    "Mangala-Eliya",
+    "Mangala Eliya",
     "Mundal",
-    "Palachchikulam",
-    "Baththulu-Oya",
+    "Pulichchakulam",
+    "Baththulu Oya",
     "Anavilundawa",
     "Arachchikattuwa",
     "Bangadeniya",
     "Manuwangama",
     "Chilaw",
-    "Savarana",
+    "Sawarana",
     "Kakkapalliya",
     "Madampe",
-    "Nelum-Pokuna",
-    "Kuda-Wewa",
+    "Nelumpokuna",
+    "Kudawewa",
     "Walahapitiya",
     "Nattandiya",
     "Thummodara",
@@ -49,13 +67,13 @@ const stations = [
     "Negombo",
     "Kurana",
     "Katunayaka",
-    "IPZ-Katunayaka",
+    "I.P. Zone",
     "Liyanagemulla",
     "Seeduwa",
     "Alawathupitiya",
     "Kudahakapola",
     "Tudella",
-    "Ja-Ela",
+    "Ja Ela",
     "Kapuwatta",
     "Kandana",
     "Peralanda",
@@ -67,26 +85,99 @@ const stations = [
     "Kelaniya",
     "Dematagoda",
     "Maradana",
-    "Colombo-Fort",
-    "Secretariat",
-    "Slave-Island",
+    "Colombo Fort",
+    "Secretariat Halt",
+    "Slave Island",
     "Kollupitiya",
     "Bambalapitiya",
     "Wellawatta",
     "Dehiwala",
-    "Mt-Lavania",
+    "Mt. Lavania",
     "Ratmalana",
     "Angulana",
     "Lunawa",
     "Moratuwa",
     "Koralawella",
-    "Egoda-Uyana",
+    "Egoda Uyana",
     "Panadura",
     "Pinwatta",
     "Wadduwa",
-    "Station-No-1",
-    "Kalutara-North",
-    "Kalutara-South",
+    "Train Halt 01",
+    "Kalutara North",
+    "Kalutara South",
+];
+
+const stationsSinhala = [
+    "නූර්නගර්",
+    "පුත්තලම",
+    "තිල්ලඩි",
+    "පාලවිය",
+    "එරුක්කලම්පිඩි",
+    "මදුරන්කුලිය",
+    "මංගල එළිය",
+    "මුන්දලම",
+    "පුලිච්චකුලම",
+    "බත්තුළු ඔය",
+    "ආනවිලුන්දාව",
+    "ආරච්චිකට්ටුව",
+    "බංගදෙණිය",
+    "මනුවන්ගම",
+    "හලාවත",
+    "සවරාන",
+    "කාක්කපල්ලිය",
+    "මාදම්පේ",
+    "නෙළුම්පොකුණ",
+    "කුඩාවැව",
+    "වලහපිටිය",
+    "නාත්තන්ඩිය",
+    "තුම්මෝදර",
+    "ලුනුවිල",
+    "බොරලැස්ස",
+    "බෝලවත්ත",
+    "වයික්කාල",
+    "කොච්චිකඩේ",
+    "කට්ටූව",
+    "මීගමුව",
+    "කුරණ",
+    "කටුනායක",
+    "ආයෝජන ප්‍රවර්ධන කලාපය",
+    "ලියනගේමුල්ල",
+    "සීදුව",
+    "අලවතුපිටිය",
+    "කුඩහකපොල",
+    "තුඩැල්ල",
+    "ජා ඇල",
+    "කපුවත්ත",
+    "කඳාන",
+    "පේරලන්ද",
+    "රාගම",
+    "හොරපේ",
+    "එඬේරමුල්ල",
+    "හුනුපිටිය",
+    "වනවාසල",
+    "කැළණිය",
+    "දෙමටගොඩ",
+    "මරදාන",
+    "කොළඹ කොටුව",
+    "මහලේකම් කාර්‍යාලය",
+    "කොම්පඤ්ඤවීදිය",
+    "කොල්ලුපිටිය",
+    "බම්බලපිටිය",
+    "වැල්ලවත්ත",
+    "දෙහිවල",
+    "ගල්කිස්ස",
+    "රත්මලාන",
+    "අඟුලාන",
+    "ලුනාව",
+    "මොරටුව",
+    "කොරළවැල්ල",
+    "එගොඩ උයන",
+    "පානදුර",
+    "පින්වත්ත",
+    "වාද්දුව",
+    "දුම්රියපොළ අංක 1",
+    "උතුරු කළුතර",
+    "දකුණු කළුතර",
 ];
 
 const trainSelector = document.querySelector("#trainSelector");
@@ -189,47 +280,7 @@ generateBtn.addEventListener("click", (e) => {
         return;
     }
 
-    let time;
-    if (timeInput.value === "") {
-        const currentDate = new Date();
-        time = currentDate.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true
-        });
-        time = time.substring(0, 6) + time.substring(6).toUpperCase();
-    } else {
-        selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
-        const selectedTime = new Date();
-        selectedTime.setHours(selectedTimeCompenents[0], selectedTimeCompenents[1]);
-        time = selectedTime.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true
-        });
-        time = time.substring(0, 6) + time.substring(6).toUpperCase();
-    }
-
-    let movement;
-    const radios = document.getElementsByName("movementRadio");
-    for (let radio of radios) {
-        if (radio.checked) {
-            movement = radio.value;
-            break;
-        }
-    }
-
-
-    let direction;
-    const directionRadios = document.getElementsByName("directionRadio");
-    for (let radio of directionRadios) {
-        if (radio.checked) {
-            direction = radio.value;
-            break;
-        }
-    }
-
-    let message = `${trainSelector.value} ${direction} ${movement} ${stationSelector.value} ${time}`;
+    let message = getMessage(getLanguage());
     document.querySelector("#generatedMessage").textContent = message;
     copyText(document.querySelector("#generatedMessage"));
 });
@@ -277,44 +328,9 @@ upBtn.addEventListener("click", (e) => {
         return;
     }
 
-    let time;
-    if (timeInput.value === "") {
-        const currentDate = new Date();
-        time = currentDate.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true
-        });
-        time = time.substring(0, 6) + time.substring(6).toUpperCase();
-    } else {
-        selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
-        const selectedTime = new Date();
-        selectedTime.setHours(selectedTimeCompenents[0], selectedTimeCompenents[1]);
-        time = selectedTime.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true
-        });
-        time = time.substring(0, 6) + time.substring(6).toUpperCase();
-    }
-
-    let movement;
-    const radios = document.getElementsByName("movementRadio");
-    for (let radio of radios) {
-        if (radio.checked) {
-            movement = radio.value;
-            break;
-        }
-    }
-
-    let direction;
-    const directionRadios = document.getElementsByName("directionRadio");
-    for (let radio of directionRadios) {
-        if (radio.checked) {
-            direction = radio.value;
-            break;
-        }
-    }
+    let time = getTime();
+    let movement = getMovement("eng");
+    let direction = getDirection("eng");
 
     stationSelector.selectedIndex -= 1;
 
@@ -334,7 +350,7 @@ upBtn.addEventListener("click", (e) => {
         }
     }
 
-    let message = `${trainSelector.value} ${direction} ${movement} ${stationSelector.value} ${time}`;
+    let message = getMessage(getLanguage());
     document.querySelector("#generatedMessage").textContent = message;
     copyText(document.querySelector("#generatedMessage"));
 });
@@ -382,44 +398,9 @@ downBtn.addEventListener("click", (e) => {
         return;
     }
 
-    let time;
-    if (timeInput.value === "") {
-        const currentDate = new Date();
-        time = currentDate.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true
-        });
-        time = time.substring(0, 6) + time.substring(6).toUpperCase();
-    } else {
-        selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
-        const selectedTime = new Date();
-        selectedTime.setHours(selectedTimeCompenents[0], selectedTimeCompenents[1]);
-        time = selectedTime.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true
-        });
-        time = time.substring(0, 6) + time.substring(6).toUpperCase();
-    }
-
-    let movement;
-    const radios = document.getElementsByName("movementRadio");
-    for (let radio of radios) {
-        if (radio.checked) {
-            movement = radio.value;
-            break;
-        }
-    }
-
-    let direction;
-    const directionRadios = document.getElementsByName("directionRadio");
-    for (let radio of directionRadios) {
-        if (radio.checked) {
-            direction = radio.value;
-            break;
-        }
-    }
+    let time = getTime();
+    let movement = getMovement("eng");
+    let direction = getDirection("eng");
 
     stationSelector.selectedIndex += 1;
 
@@ -439,7 +420,7 @@ downBtn.addEventListener("click", (e) => {
         }
     }
 
-    let message = `${trainSelector.value} ${direction} ${movement} ${stationSelector.value} ${time}`;
+    let message = getMessage(getLanguage());
     document.querySelector("#generatedMessage").textContent = message;
     copyText(document.querySelector("#generatedMessage"));
 });
@@ -461,4 +442,107 @@ function copyText(element) {
         $('#errorToast').toast("show");
     }
 
+}
+
+function getTime() {
+    let time;
+    if (timeInput.value === "") {
+        const currentDate = new Date();
+        time = currentDate.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true
+        });
+        time = time.substring(0, 6) + time.substring(6).toUpperCase();
+    } else {
+        selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
+        const selectedTime = new Date();
+        selectedTime.setHours(selectedTimeCompenents[0], selectedTimeCompenents[1]);
+        time = selectedTime.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true
+        });
+        time = time.substring(0, 6) + time.substring(6).toUpperCase();
+    }
+
+    return time;
+}
+
+function getMovement(lang) {
+    let movement;
+    const radios = document.getElementsByName("movementRadio");
+    for (let radio of radios) {
+        if (radio.checked) {
+            movement = radio.value;
+            break;
+        }
+    }
+
+    if (lang === "sin") {
+        switch (movement) {
+            case "in":
+                movement = "ඉන්";
+                break;
+            case "out":
+                movement = "අවුට්";
+                break;
+            case "passing":
+                movement = "පාසින්";
+                break;
+        }
+    }
+
+    return movement;
+}
+
+function getDirection(lang) {
+    const directionRadios = document.getElementsByName("directionRadio");
+    for (let radio of directionRadios) {
+        if (radio.checked) {
+            direction = radio.value;
+            break;
+        }
+    }
+
+    if (lang === "sin") {
+        switch (direction) {
+            case "UP":
+                movement = "අප්";
+                break;
+            case "DOWN":
+                movement = "ඩවුන්";
+                break;
+            default:
+                break;
+        }
+    }
+    return direction;
+}
+
+function getLanguage() {
+    const languageRadios = document.getElementsByName("languageRadio");
+    for (let radio of languageRadios) {
+        if (radio.checked) {
+            return radio.value;
+        }
+    }
+}
+
+function getMessage(lang) {
+    let direction = getDirection(lang);
+    let movement = getMovement(lang);
+    let time = getTime();
+
+    let message;
+    switch (lang) {
+        case "eng":
+            message = `${trainSelector.value} ${direction} ${movement} ${stationSelector.value} ${time}`;
+            break;
+        case "sin":
+            message = `${trainsSinhala[trainSelector.selectedIndex - 1]} ${direction} ${movement} ${stationsSinhala[stationSelector.selectedIndex - 1]} ${time}`;
+            break;
+    }
+
+    return message;
 }
