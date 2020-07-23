@@ -328,10 +328,6 @@ upBtn.addEventListener("click", (e) => {
         return;
     }
 
-    let time = getTime();
-    let movement = getMovement("eng");
-    let direction = getDirection("eng");
-
     stationSelector.selectedIndex -= 1;
 
     if (stationSelector.selectedIndex > 1) {
@@ -397,10 +393,6 @@ downBtn.addEventListener("click", (e) => {
     if (!(trainValidation && stationValidation)) {
         return;
     }
-
-    let time = getTime();
-    let movement = getMovement("eng");
-    let direction = getDirection("eng");
 
     stationSelector.selectedIndex += 1;
 
