@@ -1,19 +1,19 @@
 const trains = [
-    "03:50 (CHL-PND) Udaya Kumari",
-    "04:20 (CHL-MRT) Moratu Kumari",
-    "04:30 (PTM-MLV) Bange",
-    "04:50 (CHL-PND) Muthu Kumari",
-    "05:30 (CHL-FOT) Express",
-    "06:15 (CHL-FOT) CFS",
-    "06:50 (NGB-FOT) Mendis",
-    "16:10 (PND-PTM) Bange",
-    "16:30 (FOT-CHL) Saliya",
-    "16:45 (FOT-CHL) Express",
-    "16:45 (PND-CHL) Muthu Kumari",
-    "16:55 (FOT-NGB) Mendis",
-    "17:30 (FOT-NGB) Meepura",
-    "17:45 (KTS-CHL) CS",
-    "20:20 (FOT-CHL) LC",
+    "03:50 AM (CHL-PND) Udaya Kumari",
+    "04:20 AM (CHL-MRT) Moratu Kumari",
+    "04:30 AM (PTM-MLV) Bange",
+    "04:50 AM (CHL-PND) Muthu Kumari",
+    "05:30 AM (CHL-FOT) Express",
+    "06:15 AM (CHL-FOT) CFS",
+    "06:50 AM (NGB-FOT) Mendis",
+    "04:10 PM (PND-PTM) Bange",
+    "04:30 PM (FOT-CHL) Saliya",
+    "04:45 PM (FOT-CHL) Express",
+    "04:45 PM (PND-CHL) Muthu Kumari",
+    "04:55 PM (FOT-NGB) Mendis",
+    "05:30 PM (FOT-NGB) Meepura",
+    "05:45 PM (KTS-CHL) CS",
+    "08:20 PM (FOT-CHL) LC",
 ];
 
 const stations = [
@@ -195,9 +195,18 @@ generateBtn.addEventListener("click", (e) => {
         time = currentDate.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
+            hour12: true
         });
     } else {
-        time = timeInput.value;
+        selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
+        const selectedTime = new Date();
+        selectedTime.setHours(selectedTimeCompenents[0], selectedTimeCompenents[1]);
+        time = selectedTime.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true
+        });
+
     }
 
     let movement;
@@ -273,9 +282,18 @@ upBtn.addEventListener("click", (e) => {
         time = currentDate.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
+            hour12: true
         });
     } else {
-        time = timeInput.value;
+        selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
+        const selectedTime = new Date();
+        selectedTime.setHours(selectedTimeCompenents[0], selectedTimeCompenents[1]);
+        time = selectedTime.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true
+        });
+
     }
 
     let movement;
@@ -368,9 +386,18 @@ downBtn.addEventListener("click", (e) => {
         time = currentDate.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
+            hour12: true
         });
     } else {
-        time = timeInput.value;
+        selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
+        const selectedTime = new Date();
+        selectedTime.setHours(selectedTimeCompenents[0], selectedTimeCompenents[1]);
+        time = selectedTime.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true
+        });
+
     }
 
     let movement;
