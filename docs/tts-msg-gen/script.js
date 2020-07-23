@@ -102,7 +102,7 @@ const stations = [
     "Panadura",
     "Pinwatta",
     "Wadduwa",
-    "Train Halt 01",
+    "Train Halt No. 01",
     "Kalutara North",
     "Kalutara South",
 ];
@@ -175,7 +175,7 @@ const stationsSinhala = [
     "පානදුර",
     "පින්වත්ත",
     "වාද්දුව",
-    "දුම්රිය නැවතුම්පොළ 01",
+    "දුම්රිය නැවතුම්පොළ නො. 01",
     "උතුරු කළුතර",
     "දකුණු කළුතර",
 ];
