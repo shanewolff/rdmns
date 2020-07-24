@@ -180,6 +180,46 @@ const stationsSinhala = [
     "දකුණු කළුතර",
 ];
 
+const trainList = [
+    {
+        engName: "03:50 AM (CHL-PND) Udaya Kumari",
+        sinName: "03:50 AM (CHL-PND) උදය කුමාරි",
+        startStation: stations.indexOf("Chilaw"),
+        endStation: stations.indexOf("Panadura"),
+        passingStations: []
+    },
+    {
+        startStation: stations.indexOf("Chilaw"),
+        endStation: stations.indexOf("Moratuwa"),
+        passingStations: []
+    },
+    {
+        startStation: stations.indexOf("Puttalam"),
+        endStation: stations.indexOf("Mt. Lavania"),
+        passingStations: []
+    },
+    {
+        startStation: stations.indexOf("Chilaw"),
+        endStation: stations.indexOf("Panadura"),
+        passingStations: []
+    },
+    {
+        startStation: stations.indexOf("Chilaw"),
+        endStation: stations.indexOf("Colombo Fort"),
+        passingStations: []
+    },
+    {
+        startStation: stations.indexOf("Chilaw"),
+        endStation: stations.indexOf("Colombo Fort"),
+        passingStations: []
+    },
+    {
+        startStation: stations.indexOf("Negombo"),
+        endStation: stations.indexOf("Colombo Fort"),
+        passingStations: []
+    },
+];
+
 const trainSelector = document.querySelector("#trainSelector");
 const stationSelector = document.querySelector("#stationSelector");
 const timeInput = document.querySelector("#timepicker");
@@ -447,7 +487,7 @@ function getTime() {
         });
         time = time.substring(0, 6) + time.substring(6).toUpperCase();
     } else {
-        selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
+        const selectedTimeCompenents = timeInput.value.split(":").map(n => parseInt(n, 10));
         const selectedTime = new Date();
         selectedTime.setHours(selectedTimeCompenents[0], selectedTimeCompenents[1]);
         time = selectedTime.toLocaleTimeString([], {
@@ -489,6 +529,7 @@ function getMovement(lang) {
 }
 
 function getDirection(lang) {
+    let direction;
     const directionRadios = document.getElementsByName("directionRadio");
     for (let radio of directionRadios) {
         if (radio.checked) {
@@ -500,10 +541,10 @@ function getDirection(lang) {
     if (lang === "sin") {
         switch (direction) {
             case "UP":
-                movement = "අප්";
+                direction = "අප්";
                 break;
             case "DOWN":
-                movement = "ඩවුන්";
+                direction = "ඩවුන්";
                 break;
             default:
                 break;
