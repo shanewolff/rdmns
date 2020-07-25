@@ -669,6 +669,9 @@ function changeStateForUp() {
             stationSelector.selectedIndex -= 1;
             break;
         case "passing":
+            document.querySelector("#passingRadio").checked = false;
+            document.querySelector("#inRadio").checked = true;
+            stationSelector.selectedIndex -= 1;
             break;
     }
 }
@@ -685,6 +688,9 @@ function changeStateForDown() {
             stationSelector.selectedIndex += 1;
             break;
         case "passing":
+            document.querySelector("#passingRadio").checked = false;
+            document.querySelector("#inRadio").checked = true;
+            stationSelector.selectedIndex += 1;
             break;
     }
 }
