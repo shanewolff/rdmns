@@ -1,279 +1,336 @@
-const trains = [
-    "03:50 AM (CHL-PND) Udaya Kumari",
-    "03:50 AM (ALT-CHL)",
-    "04:00 AM (FOT-NOR)",
-    "04:20 AM (CHL-MRT) Moratu Kumari",
-    "04:30 AM (PTM-MLV) Bange",
-    "04:50 AM (CHL-PND) Muthu Kumari",
-    "05:00 AM (FOT-NGB)",
-    "05:30 AM (CHL-FOT) Express",
-    "06:15 AM (CHL-FOT) CFS",
-    "06:50 AM (NGB-FOT) Mendis",
-    "07:00 AM (KTS-NGB) Disna",
-    "07:40 AM (FOT-PTM) PTM Mixed",
-    "09:10 AM (CHL-FOT)",
-    "09:30 AM (NGB-FOT)",
-    "09:35 AM (FOT-CHL)",
-    "09:50 AM (NOR-FOT)",
-    "11:55 AM (FOT-NOR)",
-    "12:40 PM (CHL-FOT)",
-    "01:10 PM (FOT-MDP)",
-    "01:30 PM (PTM-FOT) PTM Mixed",
-    "02:35 PM (FOT-CHL)",
-    "03:40 PM (FOT-CHL) Saliya (Holiday)",
-    "04:00 PM (MDP-FOT)",
-    "04:10 PM (PND-PTM) Bange",
-    "04:30 PM (FOT-CHL) Saliya",
-    "04:30 PM (FOT-CHL) Express (Sunday)",
-    "04:40 PM (NOR-FOT)",
-    "04:45 PM (FOT-CHL) Express",
-    "04:45 PM (PND-CHL) Muthu Kumari",
-    "04:55 PM (FOT-NGB) Mendis",
-    "05:15 PM (CHL-FOT)",
-    "05:30 PM (FOT-NGB) Meepura",
-    "05:45 PM (KTS-CHL) CS",
-    "06:35 PM (NGB-FOT)",
-    "07:15 PM (NGB-FOT)",
-    "08:20 PM (FOT-CHL) LC",
-];
-
-const trainsSinhala = [
-    "03:50 AM (CHL-PND) උදය කුමාරි",
-    "03:50 AM (ALT-CHL)",
-    "04:00 AM (FOT-NOR)",
-    "04:20 AM (CHL-MRT) මොරටු කුමාරි",
-    "04:30 AM (PTM-MLV) බංගෙ",
-    "04:50 AM (CHL-PND) මුතු කුමාරි",
-    "05:00 AM (FOT-NGB)",
-    "05:30 AM (CHL-FOT) එක්ස්ප්‍රස්",
-    "06:15 AM (CHL-FOT) CFS",
-    "06:50 AM (NGB-FOT) මෙන්ඩිස්",
-    "07:00 AM (KTS-NGB) දිස්නා",
-    "07:40 AM (FOT-PTM) පුත්තලම මික්ස්",
-    "09:10 AM (CHL-FOT)",
-    "09:30 AM (NGB-FOT)",
-    "09:35 AM (FOT-CHL)",
-    "09:50 AM (NOR-FOT)",
-    "11:55 AM (FOT-NOR)",
-    "12:40 PM (CHL-FOT)",
-    "01:10 PM (FOT-MDP)",
-    "01:30 PM (PTM-FOT) පුත්තලම මික්ස්",
-    "02:35 PM (FOT-CHL)",
-    "03:40 PM (FOT-CHL) සාලිය (නිවාඩු දින)",
-    "04:00 PM (MDP-FOT)",
-    "04:10 PM (PND-PTM) බංගෙ",
-    "04:30 PM (FOT-CHL) සාලිය",
-    "04:30 PM (FOT-CHL) එක්ස්ප්‍රස් (ඉරිදා)",
-    "04:40 PM (NOR-FOT)",
-    "04:45 PM (FOT-CHL) එක්ස්ප්‍රස්",
-    "04:45 PM (PND-CHL) මුතු කුමාරි",
-    "04:55 PM (FOT-NGB) මෙන්ඩිස්",
-    "05:15 PM (CHL-FOT)",
-    "05:30 PM (FOT-NGB) මීපුර",
-    "05:45 PM (KTS-CHL) CS",
-    "06:35 PM (NGB-FOT)",
-    "07:15 PM (NGB-FOT)",
-    "08:20 PM (FOT-CHL) LC",
-];
-
 const stations = [
-    "Noornagar",
-    "Puttalam",
-    "Thiladiya",
-    "Palavi",
-    "Erukkalampiddy Nagawillu",
-    "Madurankuliya",
-    "Mangala Eliya",
-    "Mundal",
-    "Pulichchakulam",
-    "Baththulu Oya",
-    "Anavilundawa",
-    "Arachchikattuwa",
-    "Bangadeniya",
-    "Manuwangama",
-    "Chilaw",
-    "Sawarana",
-    "Kakkapalliya",
-    "Madampe",
-    "Nelumpokuna",
-    "Kudawewa",
-    "Walahapitiya",
-    "Nattandiya",
-    "Thummodara",
-    "Lunuwila",
-    "Boralessa",
-    "Bolawatta",
-    "Waikkala",
-    "Kochchikade",
-    "Kattuwa",
-    "Negombo",
-    "Kurana",
-    "Katunayaka",
-    "I.P. Zone",
-    "Liyanagemulla",
-    "Seeduwa",
-    "Alawathupitiya",
-    "Kudahakapola",
-    "Tudella",
-    "Ja Ela",
-    "Kapuwatta",
-    "Kandana",
-    "Peralanda",
-    "Ragama Junction",
-    "Horape",
-    "Enderamulla",
-    "Hunupitiya",
-    "Wanawasala",
-    "Kelaniya",
-    "Dematagoda",
-    "Maradana",
-    "Colombo Fort",
-    "Secretariat Halt",
-    "Slave Island",
-    "Kollupitiya",
-    "Bambalapitiya",
-    "Wellawatta",
-    "Dehiwala",
-    "Mt. Lavania",
-    "Ratmalana",
-    "Angulana",
-    "Lunawa",
-    "Moratuwa",
-    "Koralawella",
-    "Egoda Uyana",
-    "Panadura",
-    "Pinwatta",
-    "Wadduwa",
-    "Train Halt No. 1",
-    "Kalutara North",
-    "Kalutara South",
-    "Katukurunda",
-    "Payagala North",
-    "Payagala South",
-    "Maggona",
-    "Beruwela",
-    "Hettimulla",
-    "Aluthgama"
+    { engName: "Noornagar", sinName: "නූර් නගර්" },
+    { engName: "Puttalam", sinName: "පුත්තලම" },
+    { engName: "Thiladiya", sinName: "තිල්අඩිය" },
+    { engName: "Palavi", sinName: "පාලවිය" },
+    { engName: "Erukkalampiddy Nagawillu", sinName: "එරුක්කලම්පිඩි නාගවිල්ලු" },
+    { engName: "Madurankuliya", sinName: "මදුරන්කුලිය" },
+    { engName: "Mangala Eliya", sinName: "මංගල එළිය" },
+    { engName: "Mundal", sinName: "මුන්දලම" },
+    { engName: "Pulichchakulam", sinName: "පුලිච්චකුලම" },
+    { engName: "Baththulu Oya", sinName: "බත්තුළු ඔය" },
+    { engName: "Anavilundawa", sinName: "ආනවිලුන්දාව" },
+    { engName: "Arachchikattuwa", sinName: "ආරච්චිකට්ටුව" },
+    { engName: "Bangadeniya", sinName: "බංගදෙණිය" },
+    { engName: "Manuwangama", sinName: "මානුවන්ගම" },
+    { engName: "Chilaw", sinName: "හලාවත" },
+    { engName: "Sawarana", sinName: "සවරාන" },
+    { engName: "Kakkapalliya", sinName: "කාක්කපල්ලිය" },
+    { engName: "Madampe", sinName: "මාදම්පෙ" },
+    { engName: "Nelumpokuna", sinName: "නෙළුම්පොකුණ" },
+    { engName: "Kudawewa", sinName: "කුඩාවැව" },
+    { engName: "Walahapitiya", sinName: "වලහපිටිය" },
+    { engName: "Nattandiya", sinName: "නාත්තන්ඩිය" },
+    { engName: "Thummodara", sinName: "තුම්මෝදර" },
+    { engName: "Lunuwila", sinName: "ලුනුවිල" },
+    { engName: "Boralessa", sinName: "බොරලැස්ස" },
+    { engName: "Bolawatta", sinName: "බෝලවත්ත" },
+    { engName: "Waikkala", sinName: "වයික්කාල" },
+    { engName: "Kochchikade", sinName: "කොච්චිකඩේ" },
+    { engName: "Kattuwa", sinName: "කට්ටුව" },
+    { engName: "Negombo", sinName: "මීගමුව" },
+    { engName: "Kurana", sinName: "කුරණ" },
+    { engName: "Katunayaka", sinName: "කටුනායක" },
+    { engName: "I.P. Zone", sinName: "ආයෝජන ප්‍රවර්ධන කලාපය" },
+    { engName: "Liyanagemulla", sinName: "ලියනගෙමුල්ල" },
+    { engName: "Seeduwa", sinName: "සීදූව" },
+    { engName: "Alawathupitiya", sinName: "අලවතුපිටිය" },
+    { engName: "Kudahakapola", sinName: "කුඩහකපොල" },
+    { engName: "Tudella", sinName: "තුඩැල්ල" },
+    { engName: "Ja Ela", sinName: "ජා ඇල" },
+    { engName: "Kapuwatta", sinName: "කපුවත්ත" },
+    { engName: "Kandana", sinName: "කඳාන" },
+    { engName: "Peralanda", sinName: "පේරලන්ද" },
+    { engName: "Ragama Junction", sinName: "රාගම හන්දිය" },
+    { engName: "Horape", sinName: "හොරපේ" },
+    { engName: "Enderamulla", sinName: "එඬේරමුල්ල" },
+    { engName: "Hunupitiya", sinName: "හුනුපිටිය" },
+    { engName: "Wanawasala", sinName: "වනවාසල" },
+    { engName: "Kelaniya", sinName: "කැළණිය" },
+    { engName: "Dematagoda", sinName: "දෙමටගොඩ" },
+    { engName: "Maradana", sinName: "මරදාන" },
+    { engName: "Colombo Fort", sinName: "කොළඹ කොටුව" },
+    { engName: "Secretariat Halt", sinName: "මහලේකම් කාර්‍යාලය දුම්රිය නැවතුම්පළ" },
+    { engName: "Slave Island", sinName: "කොම්පඤ්ඤවීදිය" },
+    { engName: "Kollupitiya", sinName: "කොල්ලුපිටිය" },
+    { engName: "Bambalapitiya", sinName: "බම්බලපිටිය" },
+    { engName: "Wellawatta", sinName: "වැල්ලවත්ත" },
+    { engName: "Dehiwala", sinName: "දෙහිවල" },
+    { engName: "Mt. Lavania", sinName: "ගල්කිස්ස" },
+    { engName: "Ratmalana", sinName: "රත්මලාන" },
+    { engName: "Angulana", sinName: "අඟුලාන" },
+    { engName: "Lunawa", sinName: "ලුනාව" },
+    { engName: "Moratuwa", sinName: "මොරටුව" },
+    { engName: "Koralawella", sinName: "කොරළවැල්ල" },
+    { engName: "Egoda Uyana", sinName: "එගොඩ උයන" },
+    { engName: "Panadura", sinName: "පානදුර" },
+    { engName: "Pinwatta", sinName: "පින්වත්ත" },
+    { engName: "Wadduwa", sinName: "වාද්දුව" },
+    { engName: "Train Halt No. 1", sinName: "දුම්රිය නැවතුම්පළ නො. 1" },
+    { engName: "Kalutara North", sinName: "උතුරු කළුතර" },
+    { engName: "Kalutara South", sinName: "දකුණු කළුතර" },
+    { engName: "Katukurunda", sinName: "කටුකුරුන්ද" },
+    { engName: "Payagala North", sinName: "උතුරු පයාගල" },
+    { engName: "Payagala South", sinName: "දකුණු පයාගල" },
+    { engName: "Maggona", sinName: "මග්ගොන" },
+    { engName: "Beruwela", sinName: "බේරුවෙල" },
+    { engName: "Hettimulla", sinName: "හෙට්ටිමුල්ල" },
+    { engName: "Aluthgama", sinName: "අලුත්ගම" },
 ];
 
-const stationsSinhala = [
-    "නූර් නගර්",
-    "පුත්තලම",
-    "තිල්අඩිය",
-    "පාලවිය",
-    "එරුක්කලම්පිඩි නාගවිල්ලු",
-    "මදුරන්කුලිය",
-    "මංගල එළිය",
-    "මුන්දලම",
-    "පුලිච්චකුලම",
-    "බත්තුළු ඔය",
-    "ආනවිලුන්දාව",
-    "ආරච්චිකට්ටුව",
-    "බංගදෙණිය",
-    "මානුවන්ගම",
-    "හලාවත",
-    "සවරාන",
-    "කාක්කපල්ලිය",
-    "මාදම්පෙ",
-    "නෙළුම්පොකුණ",
-    "කුඩාවැව",
-    "වලහපිටිය",
-    "නාත්තන්ඩිය",
-    "තුම්මෝදර",
-    "ලුනුවිල",
-    "බොරලැස්ස",
-    "බෝලවත්ත",
-    "වයික්කාල",
-    "කොච්චිකඩේ",
-    "කට්ටුව",
-    "මීගමුව",
-    "කුරණ",
-    "කටුනායක",
-    "ආයෝජන ප්‍රවර්ධන කලාපය",
-    "ලියනගෙමුල්ල",
-    "සීදූව",
-    "අලවතුපිටිය",
-    "කුඩහකපොල",
-    "තුඩැල්ල",
-    "ජා ඇල",
-    "කපුවත්ත",
-    "කඳාන",
-    "පේරලන්ද",
-    "රාගම හන්දිය",
-    "හොරපේ",
-    "එඬේරමුල්ල",
-    "හුනුපිටිය",
-    "වනවාසල",
-    "කැළණිය",
-    "දෙමටගොඩ",
-    "මරදාන",
-    "කොළඹ කොටුව",
-    "මහලේකම් කාර්‍යාලය දුම්රිය නැවතුම්පළ",
-    "කොම්පඤ්ඤවීදිය",
-    "කොල්ලුපිටිය",
-    "බම්බලපිටිය",
-    "වැල්ලවත්ත",
-    "දෙහිවල",
-    "ගල්කිස්ස",
-    "රත්මලාන",
-    "අඟුලාන",
-    "ලුනාව",
-    "මොරටුව",
-    "කොරළවැල්ල",
-    "එගොඩ උයන",
-    "පානදුර",
-    "පින්වත්ත",
-    "වාද්දුව",
-    "දුම්රිය නැවතුම්පළ නො. 1",
-    "උතුරු කළුතර",
-    "දකුණු කළුතර",
-    "කටුකුරුන්ද",
-    "උතුරු පයාගල",
-    "දකුණු පයාගල",
-    "මග්ගොන",
-    "බේරුවෙල",
-    "හෙට්ටිමුල්ල",
-    "අලුත්ගම"
-];
-
-const trainList = [
+const trains = [
     {
         engName: "03:50 AM (CHL-PND) Udaya Kumari",
         sinName: "03:50 AM (CHL-PND) උදය කුමාරි",
-        startStation: stations.indexOf("Chilaw"),
-        endStation: stations.indexOf("Panadura"),
+        startStation: "Chilaw",
+        endStation: "Panadura",
+        passingStations: []
+    },
+    {
+        engName: "03:50 AM (ALT-CHL)",
+        sinName: "03:50 AM (ALT-CHL)",
+        startStation: "Aluthgama",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "04:00 AM (FOT-NOR)",
+        sinName: "04:00 AM (FOT-NOR)",
+        startStation: "Colombo Fort",
+        endStation: "Noornagar",
         passingStations: []
     },
     {
         engName: "04:20 AM (CHL-MRT) Moratu Kumari",
         sinName: "04:20 AM (CHL-MRT) මොරටු කුමාරි",
-        startStation: stations.indexOf("Chilaw"),
-        endStation: stations.indexOf("Moratuwa"),
+        startStation: "Chilaw",
+        endStation: "Moratuwa",
         passingStations: []
     },
     {
         engName: "04:30 AM (PTM-MLV) Bange",
         sinName: "04:30 AM (PTM-MLV) බංගෙ",
-        startStation: stations.indexOf("Puttalam"),
-        endStation: stations.indexOf("Mt. Lavania"),
+        startStation: "Puttalam",
+        endStation: "Mt. Lavania",
         passingStations: []
     },
     {
         engName: "04:50 AM (CHL-PND) Muthu Kumari",
         sinName: "04:50 AM (CHL-PND) මුතු කුමාරි",
-        startStation: stations.indexOf("Chilaw"),
-        endStation: stations.indexOf("Panadura"),
+        startStation: "Chilaw",
+        endStation: "Panadura",
+        passingStations: []
+    },
+    {
+        engName: "05:00 AM (FOT-NGB)",
+        sinName: "05:00 AM (FOT-NGB)",
+        startStation: "Colombo Fort",
+        endStation: "Negombo",
         passingStations: []
     },
     {
         engName: "05:30 AM (CHL-FOT) Express",
         sinName: "05:30 AM (CHL-FOT) එක්ස්ප්‍රස්",
-        startStation: stations.indexOf("Chilaw"),
-        endStation: stations.indexOf("Colombo Fort"),
+        startStation: "Chilaw",
+        endStation: "Colombo Fort",
         passingStations: []
     },
-
-
+    {
+        engName: "06:15 AM (CHL-FOT) CFS",
+        sinName: "06:15 AM (CHL-FOT) CFS",
+        startStation: "Chilaw",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "06:50 AM (NGB-FOT) Mendis",
+        sinName: "06:50 AM (NGB-FOT) මෙන්ඩිස්",
+        startStation: "Negombo",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "07:00 AM (KTS-NGB) Disna",
+        sinName: "07:00 AM (KTS-NGB) දිස්නා",
+        startStation: "Kalutara South",
+        endStation: "Negombo",
+        passingStations: []
+    },
+    {
+        engName: "07:40 AM (FOT-PTM) PTM Mixed",
+        sinName: "07:40 AM (FOT-PTM) පුත්තලම මික්ස්",
+        startStation: "Colombo Fort",
+        endStation: "Puttalam",
+        passingStations: []
+    },
+    {
+        engName: "09:10 AM (CHL-FOT)",
+        sinName: "09:10 AM (CHL-FOT)",
+        startStation: "Chilaw",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "09:30 AM (NGB-FOT)",
+        sinName: "09:30 AM (NGB-FOT)",
+        startStation: "Negombo",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "09:35 AM (FOT-CHL)",
+        sinName: "09:35 AM (FOT-CHL)",
+        startStation: "Colombo Fort",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "09:50 AM (NOR-FOT)",
+        sinName: "09:50 AM (NOR-FOT)",
+        startStation: "Noornagar",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "11:55 AM (FOT-NOR)",
+        sinName: "11:55 AM (FOT-NOR)",
+        startStation: "Colombo Fort",
+        endStation: "Noornagar",
+        passingStations: []
+    },
+    {
+        engName: "12:40 PM (CHL-FOT)",
+        sinName: "12:40 PM (CHL-FOT)",
+        startStation: "Chilaw",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "01:10 PM (FOT-MDP)",
+        sinName: "01:10 PM (FOT-MDP)",
+        startStation: "Colombo Fort",
+        endStation: "Madampe",
+        passingStations: []
+    },
+    {
+        engName: "01:30 PM (PTM-FOT) PTM Mixed",
+        sinName: "01:30 PM (PTM-FOT) පුත්තලම මික්ස්",
+        startStation: "Puttalam",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "02:35 PM (FOT-CHL)",
+        sinName: "02:35 PM (FOT-CHL)",
+        startStation: "Colombo Fort",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "03:40 PM (FOT-CHL) Saliya (Holiday)",
+        sinName: "03:40 PM (FOT-CHL) සාලිය (නිවාඩු දින)",
+        startStation: "Colombo Fort",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "04:00 PM (MDP-FOT)",
+        sinName: "04:00 PM (MDP-FOT)",
+        startStation: "Madampe",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "04:10 PM (PND-PTM) Bange",
+        sinName: "04:10 PM (PND-PTM) බංගෙ",
+        startStation: "Panadura",
+        endStation: "Puttalam",
+        passingStations: []
+    },
+    {
+        engName: "04:30 PM (FOT-CHL) Saliya",
+        sinName: "04:30 PM (FOT-CHL) සාලිය",
+        startStation: "Colombo Fort",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "04:30 PM (FOT-CHL) Express (Sunday)",
+        sinName: "04:30 PM (FOT-CHL) එක්ස්ප්‍රස් (ඉරිදා)",
+        startStation: "Colombo Fort",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "04:40 PM (NOR-FOT)",
+        sinName: "04:40 PM (NOR-FOT)",
+        startStation: "Noornagar",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "04:45 PM (FOT-CHL) Express",
+        sinName: "04:45 PM (FOT-CHL) එක්ස්ප්‍රස්",
+        startStation: "Colombo Fort",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "04:45 PM (PND-CHL) Muthu Kumari",
+        sinName: "04:45 PM (PND-CHL) මුතු කුමාරි",
+        startStation: "Panadura",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "04:55 PM (FOT-NGB) Mendis",
+        sinName: "04:55 PM (FOT-NGB) මෙන්ඩිස්",
+        startStation: "Colombo Fort",
+        endStation: "Negombo",
+        passingStations: []
+    },
+    {
+        engName: "05:15 PM (CHL-FOT)",
+        sinName: "05:15 PM (CHL-FOT)",
+        startStation: "Chilaw",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "05:30 PM (FOT-NGB) Meepura",
+        sinName: "05:30 PM (FOT-NGB) මීපුර",
+        startStation: "Colombo Fort",
+        endStation: "Negombo",
+        passingStations: []
+    },
+    {
+        engName: "05:45 PM (KTS-CHL) CS",
+        sinName: "05:45 PM (KTS-CHL) CS",
+        startStation: "Kalutara South",
+        endStation: "Chilaw",
+        passingStations: []
+    },
+    {
+        engName: "06:35 PM (NGB-FOT)",
+        sinName: "06:35 PM (NGB-FOT)",
+        startStation: "Negombo",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "07:15 PM (NGB-FOT)",
+        sinName: "07:15 PM (NGB-FOT)",
+        startStation: "Negombo",
+        endStation: "Colombo Fort",
+        passingStations: []
+    },
+    {
+        engName: "08:20 PM (FOT-CHL) LC",
+        sinName: "08:20 PM (FOT-CHL) LC",
+        startStation: "Colombo Fort",
+        endStation: "Chilaw",
+        passingStations: []
+    },
 ];
 
 const trainSelector = document.querySelector("#trainSelector");
@@ -282,18 +339,19 @@ const timeInput = document.querySelector("#timepicker");
 const upBtn = document.querySelector("#upBtn");
 const downBtn = document.querySelector("#downBtn");
 const generateBtn = document.querySelector("#generateBtn");
+let stationOffset = 0;
 
 for (let train of trains) {
     const optionElement = document.createElement("OPTION");
-    optionElement.nodeValue = train;
-    optionElement.text = train;
+    optionElement.nodeValue = train.engName;
+    optionElement.text = train.engName;
     trainSelector.appendChild(optionElement);
 }
 
 for (let station of stations) {
     const optionElement = document.createElement("OPTION");
-    optionElement.nodeValue = station;
-    optionElement.text = station;
+    optionElement.nodeValue = station.engName;
+    optionElement.text = station.engName;
     stationSelector.appendChild(optionElement);
 }
 
@@ -304,6 +362,31 @@ trainSelector.addEventListener("change", (e) => {
 
     if (document.querySelector("#trainRequiredMsg")) {
         document.querySelector("#trainRequiredMsg").remove();
+    }
+
+    const startStationIndex = stations.map(station => station.engName).indexOf(trains[trainSelector.selectedIndex - 1].startStation);
+    const endStationIndex = stations.map(station => station.engName).indexOf(trains[trainSelector.selectedIndex - 1].endStation);
+
+    if (startStationIndex < endStationIndex) {
+        stationOffset = startStationIndex;
+        filteredStations = stations.slice(startStationIndex, endStationIndex + 1).map(station => station.engName);
+        Array.from(stationSelector.querySelectorAll('*')).slice(1).forEach(node => node.remove());
+        filteredStations.forEach(station => {
+            const optionElement = document.createElement("OPTION");
+            optionElement.nodeValue = station;
+            optionElement.text = station;
+            stationSelector.appendChild(optionElement);
+        });
+    } else {
+        stationOffset = endStationIndex;
+        filteredStations = stations.slice(endStationIndex, startStationIndex + 1).map(station => station.engName);
+        Array.from(stationSelector.querySelectorAll('*')).slice(1).forEach(node => node.remove());
+        filteredStations.forEach(station => {
+            const optionElement = document.createElement("OPTION");
+            optionElement.nodeValue = station;
+            optionElement.text = station;
+            stationSelector.appendChild(optionElement);
+        });
     }
 });
 
@@ -324,7 +407,7 @@ stationSelector.addEventListener("change", (e) => {
         }
     }
 
-    if (stationSelector.selectedIndex < stations.length) {
+    if (stationSelector.selectedIndex < stationSelector.childElementCount - 1) {
         downBtn.removeAttribute("disabled");
     } else {
         if (!downBtn.hasAttribute("disabled")) {
@@ -364,7 +447,7 @@ upBtn.addEventListener("click", (e) => {
         }
     }
 
-    if (stationSelector.selectedIndex < stations.length) {
+    if (stationSelector.selectedIndex < stationSelector.childElementCount - 1) {
         downBtn.removeAttribute("disabled");
     } else {
         if (!downBtn.hasAttribute("disabled")) {
@@ -395,7 +478,7 @@ downBtn.addEventListener("click", (e) => {
         }
     }
 
-    if (stationSelector.selectedIndex < stations.length) {
+    if (stationSelector.selectedIndex < stationSelector.childElementCount - 1) {
         downBtn.removeAttribute("disabled");
     } else {
         if (!downBtn.hasAttribute("disabled")) {
@@ -521,10 +604,10 @@ function getMessage(lang) {
     let message;
     switch (lang) {
         case "eng":
-            message = `${trainSelector.value} ${direction} ${movement} ${stationSelector.value} ${time}`;
+            message = `${trains[trainSelector.selectedIndex - 1].engName} ${direction} ${movement} ${stations[stationSelector.selectedIndex - 1 + stationOffset].engName} ${time}`;
             break;
         case "sin":
-            message = `${trainsSinhala[trainSelector.selectedIndex - 1]} ${direction} ${movement} ${stationsSinhala[stationSelector.selectedIndex - 1]} ${time}`;
+            message = `${trains[trainSelector.selectedIndex - 1].sinName} ${direction} ${movement} ${stations[stationSelector.selectedIndex - 1 + stationOffset].sinName} ${time}`;
             break;
     }
 
