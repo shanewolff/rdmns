@@ -1,45 +1,87 @@
 const trains = [
     "03:50 AM (CHL-PND) Udaya Kumari",
+    "03:50 AM (ALT-CHL)",
+    "04:00 AM (FOT-NOR)",
     "04:20 AM (CHL-MRT) Moratu Kumari",
     "04:30 AM (PTM-MLV) Bange",
     "04:50 AM (CHL-PND) Muthu Kumari",
+    "05:00 AM (FOT-NGB)",
     "05:30 AM (CHL-FOT) Express",
     "06:15 AM (CHL-FOT) CFS",
     "06:50 AM (NGB-FOT) Mendis",
+    "07:00 AM (KTS-NGB) Disna",
+    "07:40 AM (FOT-PTM) PTM Mixed",
+    "09:10 AM (CHL-FOT)",
+    "09:30 AM (NGB-FOT)",
+    "09:35 AM (FOT-CHL)",
+    "09:50 AM (NOR-FOT)",
+    "11:55 AM (FOT-NOR)",
+    "12:40 PM (CHL-FOT)",
+    "01:10 PM (FOT-MDP)",
+    "01:30 PM (PTM-FOT) PTM Mixed",
+    "02:35 PM (FOT-CHL)",
+    "03:40 PM (FOT-CHL) Saliya (Holiday)",
+    "04:00 PM (MDP-FOT)",
     "04:10 PM (PND-PTM) Bange",
     "04:30 PM (FOT-CHL) Saliya",
+    "04:30 PM (FOT-CHL) Express (Sunday)",
+    "04:40 PM (NOR-FOT)",
     "04:45 PM (FOT-CHL) Express",
     "04:45 PM (PND-CHL) Muthu Kumari",
     "04:55 PM (FOT-NGB) Mendis",
+    "05:15 PM (CHL-FOT)",
     "05:30 PM (FOT-NGB) Meepura",
     "05:45 PM (KTS-CHL) CS",
+    "06:35 PM (NGB-FOT)",
+    "07:15 PM (NGB-FOT)",
     "08:20 PM (FOT-CHL) LC",
 ];
 
 const trainsSinhala = [
     "03:50 AM (CHL-PND) උදය කුමාරි",
+    "03:50 AM (ALT-CHL)",
+    "04:00 AM (FOT-NOR)",
     "04:20 AM (CHL-MRT) මොරටු කුමාරි",
     "04:30 AM (PTM-MLV) බංගෙ",
     "04:50 AM (CHL-PND) මුතු කුමාරි",
+    "05:00 AM (FOT-NGB)",
     "05:30 AM (CHL-FOT) එක්ස්ප්‍රස්",
     "06:15 AM (CHL-FOT) CFS",
     "06:50 AM (NGB-FOT) මෙන්ඩිස්",
+    "07:00 AM (KTS-NGB) දිස්නා",
+    "07:40 AM (FOT-PTM) පුත්තලම මික්ස්",
+    "09:10 AM (CHL-FOT)",
+    "09:30 AM (NGB-FOT)",
+    "09:35 AM (FOT-CHL)",
+    "09:50 AM (NOR-FOT)",
+    "11:55 AM (FOT-NOR)",
+    "12:40 PM (CHL-FOT)",
+    "01:10 PM (FOT-MDP)",
+    "01:30 PM (PTM-FOT) පුත්තලම මික්ස්",
+    "02:35 PM (FOT-CHL)",
+    "03:40 PM (FOT-CHL) සාලිය (නිවාඩු දින)",
+    "04:00 PM (MDP-FOT)",
     "04:10 PM (PND-PTM) බංගෙ",
     "04:30 PM (FOT-CHL) සාලිය",
+    "04:30 PM (FOT-CHL) එක්ස්ප්‍රස් (ඉරිදා)",
+    "04:40 PM (NOR-FOT)",
     "04:45 PM (FOT-CHL) එක්ස්ප්‍රස්",
     "04:45 PM (PND-CHL) මුතු කුමාරි",
     "04:55 PM (FOT-NGB) මෙන්ඩිස්",
+    "05:15 PM (CHL-FOT)",
     "05:30 PM (FOT-NGB) මීපුර",
     "05:45 PM (KTS-CHL) CS",
+    "06:35 PM (NGB-FOT)",
+    "07:15 PM (NGB-FOT)",
     "08:20 PM (FOT-CHL) LC",
 ];
 
 const stations = [
     "Noornagar",
     "Puttalam",
-    "Thilladi",
+    "Thiladiya",
     "Palavi",
-    "Erukkalampiddy",
+    "Erukkalampiddy Nagawillu",
     "Madurankuliya",
     "Mangala Eliya",
     "Mundal",
@@ -77,7 +119,7 @@ const stations = [
     "Kapuwatta",
     "Kandana",
     "Peralanda",
-    "Ragama",
+    "Ragama Junction",
     "Horape",
     "Enderamulla",
     "Hunupitiya",
@@ -105,14 +147,21 @@ const stations = [
     "Train Halt No. 1",
     "Kalutara North",
     "Kalutara South",
+    "Katukurunda",
+    "Payagala North",
+    "Payagala South",
+    "Maggona",
+    "Beruwela",
+    "Hettimulla",
+    "Aluthgama"
 ];
 
 const stationsSinhala = [
-    "නූර්නගර්",
+    "නූර් නගර්",
     "පුත්තලම",
-    "තිල්ලඩි",
+    "තිල්අඩිය",
     "පාලවිය",
-    "එරුක්කලම්පිඩි",
+    "එරුක්කලම්පිඩි නාගවිල්ලු",
     "මදුරන්කුලිය",
     "මංගල එළිය",
     "මුන්දලම",
@@ -121,11 +170,11 @@ const stationsSinhala = [
     "ආනවිලුන්දාව",
     "ආරච්චිකට්ටුව",
     "බංගදෙණිය",
-    "මනුවන්ගම",
+    "මානුවන්ගම",
     "හලාවත",
     "සවරාන",
     "කාක්කපල්ලිය",
-    "මාදම්පේ",
+    "මාදම්පෙ",
     "නෙළුම්පොකුණ",
     "කුඩාවැව",
     "වලහපිටිය",
@@ -136,13 +185,13 @@ const stationsSinhala = [
     "බෝලවත්ත",
     "වයික්කාල",
     "කොච්චිකඩේ",
-    "කට්ටූව",
+    "කට්ටුව",
     "මීගමුව",
     "කුරණ",
     "කටුනායක",
     "ආයෝජන ප්‍රවර්ධන කලාපය",
     "ලියනගෙමුල්ල",
-    "සීදුව",
+    "සීදූව",
     "අලවතුපිටිය",
     "කුඩහකපොල",
     "තුඩැල්ල",
@@ -150,7 +199,7 @@ const stationsSinhala = [
     "කපුවත්ත",
     "කඳාන",
     "පේරලන්ද",
-    "රාගම",
+    "රාගම හන්දිය",
     "හොරපේ",
     "එඬේරමුල්ල",
     "හුනුපිටිය",
@@ -159,7 +208,7 @@ const stationsSinhala = [
     "දෙමටගොඩ",
     "මරදාන",
     "කොළඹ කොටුව",
-    "මහලේකම් කාර්‍යාලය",
+    "මහලේකම් කාර්‍යාලය දුම්රිය නැවතුම්පළ",
     "කොම්පඤ්ඤවීදිය",
     "කොල්ලුපිටිය",
     "බම්බලපිටිය",
@@ -175,9 +224,16 @@ const stationsSinhala = [
     "පානදුර",
     "පින්වත්ත",
     "වාද්දුව",
-    "දුම්රිය නැවතුම්පොළ අංක 1",
+    "දුම්රිය නැවතුම්පළ නො. 1",
     "උතුරු කළුතර",
     "දකුණු කළුතර",
+    "කටුකුරුන්ද",
+    "උතුරු පයාගල",
+    "දකුණු පයාගල",
+    "මග්ගොන",
+    "බේරුවෙල",
+    "හෙට්ටිමුල්ල",
+    "අලුත්ගම"
 ];
 
 const trainList = [
@@ -278,43 +334,8 @@ stationSelector.addEventListener("change", (e) => {
 });
 
 generateBtn.addEventListener("click", (e) => {
-    let trainValidation = true;
-    let stationValidation = true;
-
-    if (trainSelector.value === "") {
-        if (!trainSelector.classList.contains("border-danger")) {
-            trainSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#trainRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(
-                smallElement,
-                trainSelector.nextSibling
-            );
-        }
-
-        trainValidation = false;
-    }
-    if (stationSelector.value === "") {
-        if (!stationSelector.classList.contains("border-danger")) {
-            stationSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#stationRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(
-                smallElement,
-                stationSelector.nextSibling
-            );
-        }
-
-        stationValidation = false;
-    }
+    let trainValidation = validateTrainSelector();
+    let stationValidation = validateStationSelector();
 
     if (!(trainValidation && stationValidation)) {
         return;
@@ -326,49 +347,14 @@ generateBtn.addEventListener("click", (e) => {
 });
 
 upBtn.addEventListener("click", (e) => {
-    let trainValidation = true;
-    let stationValidation = true;
-
-    if (trainSelector.value === "") {
-        if (!trainSelector.classList.contains("border-danger")) {
-            trainSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#trainRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(
-                smallElement,
-                trainSelector.nextSibling
-            );
-        }
-
-        trainValidation = false;
-    }
-    if (stationSelector.value === "") {
-        if (!stationSelector.classList.contains("border-danger")) {
-            stationSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#stationRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(
-                smallElement,
-                stationSelector.nextSibling
-            );
-        }
-
-        stationValidation = false;
-    }
+    let trainValidation = validateTrainSelector();
+    let stationValidation = validateStationSelector();
 
     if (!(trainValidation && stationValidation)) {
         return;
     }
 
-    stationSelector.selectedIndex -= 1;
+    changeStateForUp();
 
     if (stationSelector.selectedIndex > 1) {
         upBtn.removeAttribute("disabled");
@@ -392,49 +378,14 @@ upBtn.addEventListener("click", (e) => {
 });
 
 downBtn.addEventListener("click", (e) => {
-    let trainValidation = true;
-    let stationValidation = true;
-
-    if (trainSelector.value === "") {
-        if (!trainSelector.classList.contains("border-danger")) {
-            trainSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#trainRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(
-                smallElement,
-                trainSelector.nextSibling
-            );
-        }
-
-        trainValidation = false;
-    }
-    if (stationSelector.value === "") {
-        if (!stationSelector.classList.contains("border-danger")) {
-            stationSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#stationRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(
-                smallElement,
-                stationSelector.nextSibling
-            );
-        }
-
-        stationValidation = false;
-    }
+    let trainValidation = validateTrainSelector();
+    let stationValidation = validateStationSelector();
 
     if (!(trainValidation && stationValidation)) {
         return;
     }
 
-    stationSelector.selectedIndex += 1;
+    changeStateForDown();
 
     if (stationSelector.selectedIndex > 1) {
         upBtn.removeAttribute("disabled");
@@ -578,4 +529,79 @@ function getMessage(lang) {
     }
 
     return message;
+}
+
+function validateTrainSelector() {
+    if (trainSelector.value === "") {
+        if (!trainSelector.classList.contains("border-danger")) {
+            trainSelector.classList.add("border-danger");
+        }
+        if (document.querySelector("#trainRequiredMsg") === null) {
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "trainRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
+            smallElement.innerHTML = "Train is required!";
+            trainSelector.parentNode.insertBefore(
+                smallElement,
+                trainSelector.nextSibling
+            );
+        }
+
+        return false;
+    }
+
+    return true;
+}
+
+function validateStationSelector() {
+    if (stationSelector.value === "") {
+        if (!stationSelector.classList.contains("border-danger")) {
+            stationSelector.classList.add("border-danger");
+        }
+        if (document.querySelector("#stationRequiredMsg") === null) {
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "stationRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
+            smallElement.innerHTML = "Station is required!";
+            stationSelector.parentNode.insertBefore(
+                smallElement,
+                stationSelector.nextSibling
+            );
+        }
+
+        return false;
+    }
+    return true;
+}
+
+function changeStateForUp() {
+    switch (getMovement("eng")) {
+        case "in":
+            document.querySelector("#inRadio").checked = false;
+            document.querySelector("#outRadio").checked = true;
+            break;
+        case "out":
+            document.querySelector("#outRadio").checked = false;
+            document.querySelector("#inRadio").checked = true;
+            stationSelector.selectedIndex -= 1;
+            break;
+        case "passing":
+            break;
+    }
+}
+
+function changeStateForDown() {
+    switch (getMovement("eng")) {
+        case "in":
+            document.querySelector("#inRadio").checked = false;
+            document.querySelector("#outRadio").checked = true;
+            break;
+        case "out":
+            document.querySelector("#outRadio").checked = false;
+            document.querySelector("#inRadio").checked = true;
+            stationSelector.selectedIndex += 1;
+            break;
+        case "passing":
+            break;
+    }
 }
