@@ -189,35 +189,35 @@ const trainList = [
         passingStations: []
     },
     {
+        engName: "04:20 AM (CHL-MRT) Moratu Kumari",
+        sinName: "04:20 AM (CHL-MRT) මොරටු කුමාරි",
         startStation: stations.indexOf("Chilaw"),
         endStation: stations.indexOf("Moratuwa"),
         passingStations: []
     },
     {
+        engName: "04:30 AM (PTM-MLV) Bange",
+        sinName: "04:30 AM (PTM-MLV) බංගෙ",
         startStation: stations.indexOf("Puttalam"),
         endStation: stations.indexOf("Mt. Lavania"),
         passingStations: []
     },
     {
+        engName: "04:50 AM (CHL-PND) Muthu Kumari",
+        sinName: "04:50 AM (CHL-PND) මුතු කුමාරි",
         startStation: stations.indexOf("Chilaw"),
         endStation: stations.indexOf("Panadura"),
         passingStations: []
     },
     {
+        engName: "05:30 AM (CHL-FOT) Express",
+        sinName: "05:30 AM (CHL-FOT) එක්ස්ප්‍රස්",
         startStation: stations.indexOf("Chilaw"),
         endStation: stations.indexOf("Colombo Fort"),
         passingStations: []
     },
-    {
-        startStation: stations.indexOf("Chilaw"),
-        endStation: stations.indexOf("Colombo Fort"),
-        passingStations: []
-    },
-    {
-        startStation: stations.indexOf("Negombo"),
-        endStation: stations.indexOf("Colombo Fort"),
-        passingStations: []
-    },
+
+
 ];
 
 const trainSelector = document.querySelector("#trainSelector");
