@@ -147,7 +147,7 @@ const trains = [
         sinName: "06:50 AM (NGB-FOT) මෙන්ඩිස්",
         startStation: "Negombo",
         endStation: "Colombo Fort",
-        passingStations: []
+        passingStations: ["Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya"]
     },
     {
         engName: "07:00 AM (KTS-NGB) Disna",
@@ -287,7 +287,7 @@ const trains = [
         sinName: "04:55 PM (FOT-NGB) මෙන්ඩිස්",
         startStation: "Colombo Fort",
         endStation: "Negombo",
-        passingStations: []
+        passingStations: ["Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya"]
     },
     {
         engName: "05:15 PM (CHL-FOT)",
@@ -620,14 +620,20 @@ function changeStateForUp() {
             document.querySelector("#outRadio").checked = true;
             break;
         case "out":
-            document.querySelector("#outRadio").checked = false;
-            document.querySelector("#inRadio").checked = true;
             stationSelector.selectedIndex -= 1;
+            document.querySelector("#outRadio").checked = false;
+            if (trains[trainSelector.selectedIndex - 1].passingStations.includes(stationSelector.value)) {
+                document.querySelector("#passingRadio").checked = true;
+            } else {
+                document.querySelector("#inRadio").checked = true;
+            }
             break;
         case "passing":
-            document.querySelector("#passingRadio").checked = false;
-            document.querySelector("#inRadio").checked = true;
             stationSelector.selectedIndex -= 1;
+            if (!trains[trainSelector.selectedIndex - 1].passingStations.includes(stationSelector.value)) {
+                document.querySelector("#passingRadio").checked = false;
+                document.querySelector("#inRadio").checked = true;
+            }
             break;
     }
 }
@@ -639,14 +645,20 @@ function changeStateForDown() {
             document.querySelector("#outRadio").checked = true;
             break;
         case "out":
-            document.querySelector("#outRadio").checked = false;
-            document.querySelector("#inRadio").checked = true;
             stationSelector.selectedIndex += 1;
+            document.querySelector("#outRadio").checked = false;
+            if (trains[trainSelector.selectedIndex - 1].passingStations.includes(stationSelector.value)) {
+                document.querySelector("#passingRadio").checked = true;
+            } else {
+                document.querySelector("#inRadio").checked = true;
+            }
             break;
         case "passing":
-            document.querySelector("#passingRadio").checked = false;
-            document.querySelector("#inRadio").checked = true;
             stationSelector.selectedIndex += 1;
+            if (!trains[trainSelector.selectedIndex - 1].passingStations.includes(stationSelector.value)) {
+                document.querySelector("#passingRadio").checked = false;
+                document.querySelector("#inRadio").checked = true;
+            }
             break;
     }
 }
