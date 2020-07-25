@@ -294,43 +294,8 @@ stationSelector.addEventListener("change", (e) => {
 });
 
 generateBtn.addEventListener("click", (e) => {
-    let trainValidation = true;
-    let stationValidation = true;
-
-    if (trainSelector.value === "") {
-        if (!trainSelector.classList.contains("border-danger")) {
-            trainSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#trainRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(
-                smallElement,
-                trainSelector.nextSibling
-            );
-        }
-
-        trainValidation = false;
-    }
-    if (stationSelector.value === "") {
-        if (!stationSelector.classList.contains("border-danger")) {
-            stationSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#stationRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(
-                smallElement,
-                stationSelector.nextSibling
-            );
-        }
-
-        stationValidation = false;
-    }
+    let trainValidation = validateTrainSelector();
+    let stationValidation = validateStationSelector();
 
     if (!(trainValidation && stationValidation)) {
         return;
@@ -342,43 +307,8 @@ generateBtn.addEventListener("click", (e) => {
 });
 
 upBtn.addEventListener("click", (e) => {
-    let trainValidation = true;
-    let stationValidation = true;
-
-    if (trainSelector.value === "") {
-        if (!trainSelector.classList.contains("border-danger")) {
-            trainSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#trainRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(
-                smallElement,
-                trainSelector.nextSibling
-            );
-        }
-
-        trainValidation = false;
-    }
-    if (stationSelector.value === "") {
-        if (!stationSelector.classList.contains("border-danger")) {
-            stationSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#stationRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(
-                smallElement,
-                stationSelector.nextSibling
-            );
-        }
-
-        stationValidation = false;
-    }
+    let trainValidation = validateTrainSelector();
+    let stationValidation = validateStationSelector();
 
     if (!(trainValidation && stationValidation)) {
         return;
@@ -408,43 +338,8 @@ upBtn.addEventListener("click", (e) => {
 });
 
 downBtn.addEventListener("click", (e) => {
-    let trainValidation = true;
-    let stationValidation = true;
-
-    if (trainSelector.value === "") {
-        if (!trainSelector.classList.contains("border-danger")) {
-            trainSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#trainRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "trainRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Train is required!";
-            trainSelector.parentNode.insertBefore(
-                smallElement,
-                trainSelector.nextSibling
-            );
-        }
-
-        trainValidation = false;
-    }
-    if (stationSelector.value === "") {
-        if (!stationSelector.classList.contains("border-danger")) {
-            stationSelector.classList.add("border-danger");
-        }
-        if (document.querySelector("#stationRequiredMsg") === null) {
-            const smallElement = document.createElement("small");
-            smallElement.setAttribute("id", "stationRequiredMsg");
-            smallElement.classList.add("text-danger", "font-weight-bold");
-            smallElement.innerHTML = "Station is required!";
-            stationSelector.parentNode.insertBefore(
-                smallElement,
-                stationSelector.nextSibling
-            );
-        }
-
-        stationValidation = false;
-    }
+    let trainValidation = validateTrainSelector();
+    let stationValidation = validateStationSelector();
 
     if (!(trainValidation && stationValidation)) {
         return;
@@ -593,4 +488,47 @@ function getMessage(lang) {
     }
 
     return message;
+}
+
+function validateTrainSelector() {
+    if (trainSelector.value === "") {
+        if (!trainSelector.classList.contains("border-danger")) {
+            trainSelector.classList.add("border-danger");
+        }
+        if (document.querySelector("#trainRequiredMsg") === null) {
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "trainRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
+            smallElement.innerHTML = "Train is required!";
+            trainSelector.parentNode.insertBefore(
+                smallElement,
+                trainSelector.nextSibling
+            );
+        }
+
+        return false;
+    }
+
+    return true;
+}
+
+function validateStationSelector() {
+    if (stationSelector.value === "") {
+        if (!stationSelector.classList.contains("border-danger")) {
+            stationSelector.classList.add("border-danger");
+        }
+        if (document.querySelector("#stationRequiredMsg") === null) {
+            const smallElement = document.createElement("small");
+            smallElement.setAttribute("id", "stationRequiredMsg");
+            smallElement.classList.add("text-danger", "font-weight-bold");
+            smallElement.innerHTML = "Station is required!";
+            stationSelector.parentNode.insertBefore(
+                smallElement,
+                stationSelector.nextSibling
+            );
+        }
+
+        return false;
+    }
+    return true;
 }
