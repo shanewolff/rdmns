@@ -314,7 +314,7 @@ upBtn.addEventListener("click", (e) => {
         return;
     }
 
-    stationSelector.selectedIndex -= 1;
+    changeStateForUp();
 
     if (stationSelector.selectedIndex > 1) {
         upBtn.removeAttribute("disabled");
@@ -345,7 +345,7 @@ downBtn.addEventListener("click", (e) => {
         return;
     }
 
-    stationSelector.selectedIndex += 1;
+    changeStateForDown();
 
     if (stationSelector.selectedIndex > 1) {
         upBtn.removeAttribute("disabled");
@@ -531,4 +531,36 @@ function validateStationSelector() {
         return false;
     }
     return true;
+}
+
+function changeStateForUp() {
+    switch (getMovement("eng")) {
+        case "in":
+            document.querySelector("#inRadio").checked = false;
+            document.querySelector("#outRadio").checked = true;
+            break;
+        case "out":
+            document.querySelector("#outRadio").checked = false;
+            document.querySelector("#inRadio").checked = true;
+            stationSelector.selectedIndex -= 1;
+            break;
+        case "passing":
+            break;
+    }
+}
+
+function changeStateForDown() {
+    switch (getMovement("eng")) {
+        case "in":
+            document.querySelector("#inRadio").checked = false;
+            document.querySelector("#outRadio").checked = true;
+            break;
+        case "out":
+            document.querySelector("#outRadio").checked = false;
+            document.querySelector("#inRadio").checked = true;
+            stationSelector.selectedIndex += 1;
+            break;
+        case "passing":
+            break;
+    }
 }
