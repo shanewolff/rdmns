@@ -399,21 +399,7 @@ stationSelector.addEventListener("change", (e) => {
         document.querySelector("#stationRequiredMsg").remove();
     }
 
-    if (stationSelector.selectedIndex > 1) {
-        upBtn.removeAttribute("disabled");
-    } else {
-        if (!upBtn.hasAttribute("disabled")) {
-            upBtn.setAttribute("disabled", "disabled");
-        }
-    }
-
-    if (stationSelector.selectedIndex < stationSelector.childElementCount - 1) {
-        downBtn.removeAttribute("disabled");
-    } else {
-        if (!downBtn.hasAttribute("disabled")) {
-            downBtn.setAttribute("disabled", "disabled");
-        }
-    }
+    changeUpDownBtnAvailability();
 });
 
 generateBtn.addEventListener("click", (e) => {
@@ -438,22 +424,7 @@ upBtn.addEventListener("click", (e) => {
     }
 
     changeStateForUp();
-
-    if (stationSelector.selectedIndex > 1) {
-        upBtn.removeAttribute("disabled");
-    } else {
-        if (!upBtn.hasAttribute("disabled")) {
-            upBtn.setAttribute("disabled", "disabled");
-        }
-    }
-
-    if (stationSelector.selectedIndex < stationSelector.childElementCount - 1) {
-        downBtn.removeAttribute("disabled");
-    } else {
-        if (!downBtn.hasAttribute("disabled")) {
-            downBtn.setAttribute("disabled", "disabled");
-        }
-    }
+    changeUpDownBtnAvailability();
 
     let message = getMessage(getLanguage());
     document.querySelector("#generatedMessage").textContent = message;
@@ -469,22 +440,7 @@ downBtn.addEventListener("click", (e) => {
     }
 
     changeStateForDown();
-
-    if (stationSelector.selectedIndex > 1) {
-        upBtn.removeAttribute("disabled");
-    } else {
-        if (!upBtn.hasAttribute("disabled")) {
-            upBtn.setAttribute("disabled", "disabled");
-        }
-    }
-
-    if (stationSelector.selectedIndex < stationSelector.childElementCount - 1) {
-        downBtn.removeAttribute("disabled");
-    } else {
-        if (!downBtn.hasAttribute("disabled")) {
-            downBtn.setAttribute("disabled", "disabled");
-        }
-    }
+    changeUpDownBtnAvailability();
 
     let message = getMessage(getLanguage());
     document.querySelector("#generatedMessage").textContent = message;
@@ -692,5 +648,23 @@ function changeStateForDown() {
             document.querySelector("#inRadio").checked = true;
             stationSelector.selectedIndex += 1;
             break;
+    }
+}
+
+function changeUpDownBtnAvailability() {
+    if (stationSelector.selectedIndex > 1) {
+        upBtn.removeAttribute("disabled");
+    } else {
+        if (!upBtn.hasAttribute("disabled")) {
+            upBtn.setAttribute("disabled", "disabled");
+        }
+    }
+
+    if (stationSelector.selectedIndex < stationSelector.childElementCount - 1) {
+        downBtn.removeAttribute("disabled");
+    } else {
+        if (!downBtn.hasAttribute("disabled")) {
+            downBtn.setAttribute("disabled", "disabled");
+        }
     }
 }
