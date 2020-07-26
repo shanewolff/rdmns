@@ -44,7 +44,7 @@ const stations = [
     { engName: "Ragama Junction", sinName: "රාගම හන්දිය" },
     { engName: "Horape", sinName: "හොරපේ" },
     { engName: "Enderamulla", sinName: "එඬේරමුල්ල" },
-    { engName: "Hunupitiya", sinName: "හුනුපිටිය" },
+    { engName: "Hunupitiya", sinName: "හුණුපිටිය" },
     { engName: "Wanawasala", sinName: "වනවාසල" },
     { engName: "Kelaniya", sinName: "කැළණිය" },
     { engName: "Dematagoda", sinName: "දෙමටගොඩ" },
@@ -112,7 +112,7 @@ const trains = [
         sinName: "04:30 AM (PTM-MLV) බංගෙ",
         startStation: "Puttalam",
         endStation: "Mt. Lavania",
-        passingStations: []
+        passingStations: ["Kurana", "Katunayaka", "Liyanagemulla", "Alawathupitiya", "Kudahakapola", "Tudella", "Kapuwatta", "Peralanda", "Ragama Junction", "Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya"]
     },
     {
         engName: "04:50 AM (CHL-PND) Muthu Kumari",
@@ -245,7 +245,7 @@ const trains = [
         sinName: "04:10 PM (PND-PTM) බංගෙ",
         startStation: "Panadura",
         endStation: "Puttalam",
-        passingStations: []
+        passingStations: ["Kurana", "Katunayaka", "Liyanagemulla", "Alawathupitiya", "Kudahakapola", "Tudella", "Kapuwatta", "Peralanda", "Ragama Junction", "Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya"]
     },
     {
         engName: "04:30 PM (FOT-CHL) Saliya",
