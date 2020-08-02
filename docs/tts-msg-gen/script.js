@@ -80,257 +80,320 @@ const stations = [
 
 const trains = [
     {
-        engName: "03:50 AM (CHL-PND) Udaya Kumari",
-        sinName: "03:50 AM (CHL-PND) උදය කුමාරි",
-        startStation: "Chilaw",
-        endStation: "Panadura",
+        engName: '03:50 AM (CHL-PND) Udaya Kumari',
+        sinName: '03:50 AM (CHL-PND) උදය කුමාරි',
+        startStation: 'Chilaw',
+        endStation: 'Panadura',
         passingStations: []
     },
     {
-        engName: "03:50 AM (ALT-CHL)",
-        sinName: "03:50 AM (ALT-CHL)",
-        startStation: "Aluthgama",
-        endStation: "Chilaw",
+        engName: '03:50 AM (ALT-CHL)',
+        sinName: '03:50 AM (ALT-CHL)',
+        startStation: 'Aluthgama',
+        endStation: 'Chilaw',
         passingStations: []
     },
     {
-        engName: "04:00 AM (FOT-NOR)",
-        sinName: "04:00 AM (FOT-NOR)",
-        startStation: "Colombo Fort",
-        endStation: "Noornagar",
+        engName: '04:00 AM (FOT-NOR)',
+        sinName: '04:00 AM (FOT-NOR)',
+        startStation: 'Colombo Fort',
+        endStation: 'Noornagar',
         passingStations: []
     },
     {
-        engName: "04:20 AM (CHL-MRT) Moratu Kumari",
-        sinName: "04:20 AM (CHL-MRT) මොරටු කුමාරි",
-        startStation: "Chilaw",
-        endStation: "Moratuwa",
+        engName: '04:20 AM (CHL-MRT) Moratu Kumari',
+        sinName: '04:20 AM (CHL-MRT) මොරටු කුමාරි',
+        startStation: 'Chilaw',
+        endStation: 'Moratuwa',
+        passingStations: ['Horape', 'Enderamulla', 'Wanawasala']
+    },
+    {
+        engName: '04:30 AM (PTM-MLV) Bange',
+        sinName: '04:30 AM (PTM-MLV) බංගෙ',
+        startStation: 'Puttalam',
+        endStation: 'Mt. Lavania',
+        passingStations: [
+            'Kurana', 'Katunayaka',
+            'Liyanagemulla', 'Alawathupitiya',
+            'Kudahakapola', 'Tudella',
+            'Kapuwatta', 'Peralanda',
+            'Ragama Junction', 'Horape',
+            'Enderamulla', 'Hunupitiya',
+            'Wanawasala', 'Kelaniya'
+        ]
+    },
+    {
+        engName: '04:50 AM (CHL-PND) Muthu Kumari',
+        sinName: '04:50 AM (CHL-PND) මුතු කුමාරි',
+        startStation: 'Chilaw',
+        endStation: 'Panadura',
+        passingStations: ['Horape', 'Enderamulla', 'Hunupitiya', 'Wanawasala']
+    },
+    {
+        engName: '05:00 AM (FOT-NGB)',
+        sinName: '05:00 AM (FOT-NGB)',
+        startStation: 'Colombo Fort',
+        endStation: 'Negombo',
         passingStations: []
     },
     {
-        engName: "04:30 AM (PTM-MLV) Bange",
-        sinName: "04:30 AM (PTM-MLV) බංගෙ",
-        startStation: "Puttalam",
-        endStation: "Mt. Lavania",
-        passingStations: ["Kurana", "Katunayaka", "Liyanagemulla", "Alawathupitiya", "Kudahakapola", "Tudella", "Kapuwatta", "Peralanda", "Ragama Junction", "Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya"]
+        engName: '05:30 AM (CHL-FOT) Chilaw Express',
+        sinName: '05:30 AM (CHL-FOT) හලාවත එක්ස්ප්‍රස්',
+        startStation: 'Chilaw',
+        endStation: 'Colombo Fort',
+        passingStations: [
+            'Sawarana', 'Kakkapalliya',
+            'Nelumpokuna', 'Walahapitiya',
+            'Thummodara', 'Boralessa',
+            'Waikkala', 'Kattuwa',
+            'Kurana', 'Katunayaka',
+            'I.P. Zone', 'Liyanagemulla',
+            'Seeduwa', 'Alawathupitiya',
+            'Kudahakapola', 'Thudella',
+            'Ja Ela', 'Kapuwatta',
+            'Kandana', 'Peralanda',
+            'Ragama Junction', 'Horape',
+            'Enderamulla', 'Hunupitiya',
+            'Wanawasala', 'Kelaniya'
+        ]
     },
     {
-        engName: "04:50 AM (CHL-PND) Muthu Kumari",
-        sinName: "04:50 AM (CHL-PND) මුතු කුමාරි",
-        startStation: "Chilaw",
-        endStation: "Panadura",
+        engName: '06:15 AM (CHL-FOT) CFS',
+        sinName: '06:15 AM (CHL-FOT) CFS',
+        startStation: 'Chilaw',
+        endStation: 'Colombo Fort',
+        passingStations: [
+            'Sawarana',
+            'Kakkapalliya',
+            'Nelumpokuna',
+            'Walahapitiya',
+            'Thummodara',
+            'Boralessa',
+            'Waikkala',
+            'Kattuwa'
+        ]
+    },
+    {
+        engName: '06:50 AM (NGB-FOT) Mendis',
+        sinName: '06:50 AM (NGB-FOT) මෙන්ඩිස්',
+        startStation: 'Negombo',
+        endStation: 'Colombo Fort',
+        passingStations: ['Horape', 'Enderamulla', 'Hunupitiya', 'Wanawasala', 'Kelaniya']
+    },
+    {
+        engName: '07:00 AM (KTS-NGB) Disna',
+        sinName: '07:00 AM (KTS-NGB) දිස්නා',
+        startStation: 'Kalutara South',
+        endStation: 'Negombo',
         passingStations: []
     },
     {
-        engName: "05:00 AM (FOT-NGB)",
-        sinName: "05:00 AM (FOT-NGB)",
-        startStation: "Colombo Fort",
-        endStation: "Negombo",
+        engName: '07:40 AM (FOT-PTM) PTM Mixed',
+        sinName: '07:40 AM (FOT-PTM) පුත්තලම මික්ස්',
+        startStation: 'Colombo Fort',
+        endStation: 'Puttalam',
         passingStations: []
     },
     {
-        engName: "05:30 AM (CHL-FOT) Express",
-        sinName: "05:30 AM (CHL-FOT) එක්ස්ප්‍රස්",
-        startStation: "Chilaw",
-        endStation: "Colombo Fort",
+        engName: '09:10 AM (CHL-FOT)',
+        sinName: '09:10 AM (CHL-FOT)',
+        startStation: 'Chilaw',
+        endStation: 'Colombo Fort',
         passingStations: []
     },
     {
-        engName: "06:15 AM (CHL-FOT) CFS",
-        sinName: "06:15 AM (CHL-FOT) CFS",
-        startStation: "Chilaw",
-        endStation: "Colombo Fort",
+        engName: '09:30 AM (NGB-FOT)',
+        sinName: '09:30 AM (NGB-FOT)',
+        startStation: 'Negombo',
+        endStation: 'Colombo Fort',
         passingStations: []
     },
     {
-        engName: "06:50 AM (NGB-FOT) Mendis",
-        sinName: "06:50 AM (NGB-FOT) මෙන්ඩිස්",
-        startStation: "Negombo",
-        endStation: "Colombo Fort",
-        passingStations: ["Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya"]
-    },
-    {
-        engName: "07:00 AM (KTS-NGB) Disna",
-        sinName: "07:00 AM (KTS-NGB) දිස්නා",
-        startStation: "Kalutara South",
-        endStation: "Negombo",
+        engName: '09:35 AM (FOT-CHL)',
+        sinName: '09:35 AM (FOT-CHL)',
+        startStation: 'Colombo Fort',
+        endStation: 'Chilaw',
         passingStations: []
     },
     {
-        engName: "07:40 AM (FOT-PTM) PTM Mixed",
-        sinName: "07:40 AM (FOT-PTM) පුත්තලම මික්ස්",
-        startStation: "Colombo Fort",
-        endStation: "Puttalam",
+        engName: '09:50 AM (NOR-FOT)',
+        sinName: '09:50 AM (NOR-FOT)',
+        startStation: 'Noornagar',
+        endStation: 'Colombo Fort',
         passingStations: []
     },
     {
-        engName: "09:10 AM (CHL-FOT)",
-        sinName: "09:10 AM (CHL-FOT)",
-        startStation: "Chilaw",
-        endStation: "Colombo Fort",
+        engName: '11:55 AM (FOT-NOR)',
+        sinName: '11:55 AM (FOT-NOR)',
+        startStation: 'Colombo Fort',
+        endStation: 'Noornagar',
         passingStations: []
     },
     {
-        engName: "09:30 AM (NGB-FOT)",
-        sinName: "09:30 AM (NGB-FOT)",
-        startStation: "Negombo",
-        endStation: "Colombo Fort",
+        engName: '12:40 PM (CHL-FOT)',
+        sinName: '12:40 PM (CHL-FOT)',
+        startStation: 'Chilaw',
+        endStation: 'Colombo Fort',
         passingStations: []
     },
     {
-        engName: "09:35 AM (FOT-CHL)",
-        sinName: "09:35 AM (FOT-CHL)",
-        startStation: "Colombo Fort",
-        endStation: "Chilaw",
+        engName: '01:10 PM (FOT-MDP)',
+        sinName: '01:10 PM (FOT-MDP)',
+        startStation: 'Colombo Fort',
+        endStation: 'Madampe',
         passingStations: []
     },
     {
-        engName: "09:50 AM (NOR-FOT)",
-        sinName: "09:50 AM (NOR-FOT)",
-        startStation: "Noornagar",
-        endStation: "Colombo Fort",
+        engName: '01:30 PM (PTM-FOT) PTM Mixed',
+        sinName: '01:30 PM (PTM-FOT) පුත්තලම මික්ස්',
+        startStation: 'Puttalam',
+        endStation: 'Colombo Fort',
         passingStations: []
     },
     {
-        engName: "11:55 AM (FOT-NOR)",
-        sinName: "11:55 AM (FOT-NOR)",
-        startStation: "Colombo Fort",
-        endStation: "Noornagar",
+        engName: '02:35 PM (FOT-CHL)',
+        sinName: '02:35 PM (FOT-CHL)',
+        startStation: 'Colombo Fort',
+        endStation: 'Chilaw',
+        passingStations: ['Wanawasala', 'Hunupitiya', 'Enderamulla', 'Horape']
+    },
+    {
+        engName: '03:40 PM (FOT-CHL) Saliya (Holiday)',
+        sinName: '03:40 PM (FOT-CHL) සාලිය (නිවාඩු දින)',
+        startStation: 'Colombo Fort',
+        endStation: 'Chilaw',
         passingStations: []
     },
     {
-        engName: "12:40 PM (CHL-FOT)",
-        sinName: "12:40 PM (CHL-FOT)",
-        startStation: "Chilaw",
-        endStation: "Colombo Fort",
+        engName: '04:00 PM (MDP-FOT)',
+        sinName: '04:00 PM (MDP-FOT)',
+        startStation: 'Madampe',
+        endStation: 'Colombo Fort',
         passingStations: []
     },
     {
-        engName: "01:10 PM (FOT-MDP)",
-        sinName: "01:10 PM (FOT-MDP)",
-        startStation: "Colombo Fort",
-        endStation: "Madampe",
+        engName: '04:10 PM (PND-PTM) Bange',
+        sinName: '04:10 PM (PND-PTM) බංගෙ',
+        startStation: 'Panadura',
+        endStation: 'Puttalam',
+        passingStations: [
+            'Kelaniya', 'Wanawasala',
+            'Hunupitiya', 'Enderamulla',
+            'Horape', 'Ragama Junction',
+            'Peralanda', 'Kapuwatta',
+            'Tudella', 'Kudahakapola',
+            'Alawathupitiya', 'Liyanagemulla',
+            'Katunayaka', 'Kurana'
+        ]
+    },
+    {
+        engName: '04:30 PM (FOT-CHL) Saliya',
+        sinName: '04:30 PM (FOT-CHL) සාලිය',
+        startStation: 'Colombo Fort',
+        endStation: 'Chilaw',
         passingStations: []
     },
     {
-        engName: "01:30 PM (PTM-FOT) PTM Mixed",
-        sinName: "01:30 PM (PTM-FOT) පුත්තලම මික්ස්",
-        startStation: "Puttalam",
-        endStation: "Colombo Fort",
+        engName: '04:30 PM (FOT-CHL) Chilaw Express (Sunday)',
+        sinName: '04:30 PM (FOT-CHL) හලාවත එක්ස්ප්‍රස් (ඉරිදා)',
+        startStation: 'Colombo Fort',
+        endStation: 'Chilaw',
         passingStations: []
     },
     {
-        engName: "02:35 PM (FOT-CHL)",
-        sinName: "02:35 PM (FOT-CHL)",
-        startStation: "Colombo Fort",
-        endStation: "Chilaw",
+        engName: '04:40 PM (NOR-FOT)',
+        sinName: '04:40 PM (NOR-FOT)',
+        startStation: 'Noornagar',
+        endStation: 'Colombo Fort',
+        passingStations: ['Horape', 'Enderamulla', 'Hunupitiya', 'Wanawasala', 'Kelaniya']
+    },
+    {
+        engName: '04:45 PM (FOT-CHL) Chilaw Express',
+        sinName: '04:45 PM (FOT-CHL) හලාවත එක්ස්ප්‍රස්',
+        startStation: 'Colombo Fort',
+        endStation: 'Chilaw',
+        passingStations: [
+            'Kelaniya', 'Wanawasala',
+            'Hunupitiya', 'Enderamulla',
+            'Horape', 'Ragama Junction',
+            'Peralanda', 'Kandana',
+            'Kapuwatta', 'Ja Ela',
+            'Tudella', 'Kudahakapola',
+            'Alawathupitiya', 'Seeduwa',
+            'Liyanagemulla', 'I.P. Zone',
+            'Katunayaka', 'Kurana',
+            'Kattuwa', 'Waikkala',
+            'Boralessa', 'Thummodara',
+            'Walahapitiya', 'Nelumpokuna',
+            'Kakkapalliya', 'Sawarana'
+        ]
+    },
+    {
+        engName: '04:45 PM (PND-CHL) Muthu Kumari',
+        sinName: '04:45 PM (PND-CHL) මුතු කුමාරි',
+        startStation: 'Panadura',
+        endStation: 'Chilaw',
+        passingStations: ['Kelaniya', 'Wanawasala', 'Hunupitiya', 'Enderamulla', 'Horape']
+    },
+    {
+        engName: '04:55 PM (FOT-NGB) Mendis',
+        sinName: '04:55 PM (FOT-NGB) මෙන්ඩිස්',
+        startStation: 'Colombo Fort',
+        endStation: 'Negombo',
+        passingStations: ['Kelaniya', 'Wanawasala', 'Hunupitiya', 'Enderamulla', 'Horape']
+    },
+    {
+        engName: '05:15 PM (CHL-FOT)',
+        sinName: '05:15 PM (CHL-FOT)',
+        startStation: 'Chilaw',
+        endStation: 'Colombo Fort',
+        passingStations: [
+            'Kurana', 'Katunayaka',
+            'I.P. Zone', 'Liyanagemulla',
+            'Seeduwa', 'Alawathupitiya',
+            'Kudahakapola', 'Tudella',
+            'Ja Ela', 'Kapuwatta',
+            'Kandana', 'Peralanda',
+            'Horape', 'Enderamulla',
+            'Hunupitiya', 'Wanawasala',
+            'Kelaniya'
+        ]
+    },
+    {
+        engName: '05:30 PM (FOT-NGB) Meepura',
+        sinName: '05:30 PM (FOT-NGB) මීපුර',
+        startStation: 'Colombo Fort',
+        endStation: 'Negombo',
         passingStations: []
     },
     {
-        engName: "03:40 PM (FOT-CHL) Saliya (Holiday)",
-        sinName: "03:40 PM (FOT-CHL) සාලිය (නිවාඩු දින)",
-        startStation: "Colombo Fort",
-        endStation: "Chilaw",
+        engName: '05:45 PM (KTS-CHL) CS',
+        sinName: '05:45 PM (KTS-CHL) CS',
+        startStation: 'Kalutara South',
+        endStation: 'Chilaw',
         passingStations: []
     },
     {
-        engName: "04:00 PM (MDP-FOT)",
-        sinName: "04:00 PM (MDP-FOT)",
-        startStation: "Madampe",
-        endStation: "Colombo Fort",
+        engName: '06:35 PM (NGB-FOT)',
+        sinName: '06:35 PM (NGB-FOT)',
+        startStation: 'Negombo',
+        endStation: 'Colombo Fort',
         passingStations: []
     },
     {
-        engName: "04:10 PM (PND-PTM) Bange",
-        sinName: "04:10 PM (PND-PTM) බංගෙ",
-        startStation: "Panadura",
-        endStation: "Puttalam",
-        passingStations: ["Kurana", "Katunayaka", "Liyanagemulla", "Alawathupitiya", "Kudahakapola", "Tudella", "Kapuwatta", "Peralanda", "Ragama Junction", "Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya"]
-    },
-    {
-        engName: "04:30 PM (FOT-CHL) Saliya",
-        sinName: "04:30 PM (FOT-CHL) සාලිය",
-        startStation: "Colombo Fort",
-        endStation: "Chilaw",
+        engName: '07:15 PM (NGB-FOT)',
+        sinName: '07:15 PM (NGB-FOT)',
+        startStation: 'Negombo',
+        endStation: 'Colombo Fort',
         passingStations: []
     },
     {
-        engName: "04:30 PM (FOT-CHL) Express (Sunday)",
-        sinName: "04:30 PM (FOT-CHL) එක්ස්ප්‍රස් (ඉරිදා)",
-        startStation: "Colombo Fort",
-        endStation: "Chilaw",
+        engName: '08:20 PM (FOT-CHL) LC',
+        sinName: '08:20 PM (FOT-CHL) LC',
+        startStation: 'Colombo Fort',
+        endStation: 'Chilaw',
         passingStations: []
-    },
-    {
-        engName: "04:40 PM (NOR-FOT)",
-        sinName: "04:40 PM (NOR-FOT)",
-        startStation: "Noornagar",
-        endStation: "Colombo Fort",
-        passingStations: []
-    },
-    {
-        engName: "04:45 PM (FOT-CHL) Express",
-        sinName: "04:45 PM (FOT-CHL) එක්ස්ප්‍රස්",
-        startStation: "Colombo Fort",
-        endStation: "Chilaw",
-        passingStations: []
-    },
-    {
-        engName: "04:45 PM (PND-CHL) Muthu Kumari",
-        sinName: "04:45 PM (PND-CHL) මුතු කුමාරි",
-        startStation: "Panadura",
-        endStation: "Chilaw",
-        passingStations: []
-    },
-    {
-        engName: "04:55 PM (FOT-NGB) Mendis",
-        sinName: "04:55 PM (FOT-NGB) මෙන්ඩිස්",
-        startStation: "Colombo Fort",
-        endStation: "Negombo",
-        passingStations: ["Horape", "Enderamulla", "Hunupitiya", "Wanawasala", "Kelaniya"]
-    },
-    {
-        engName: "05:15 PM (CHL-FOT)",
-        sinName: "05:15 PM (CHL-FOT)",
-        startStation: "Chilaw",
-        endStation: "Colombo Fort",
-        passingStations: []
-    },
-    {
-        engName: "05:30 PM (FOT-NGB) Meepura",
-        sinName: "05:30 PM (FOT-NGB) මීපුර",
-        startStation: "Colombo Fort",
-        endStation: "Negombo",
-        passingStations: []
-    },
-    {
-        engName: "05:45 PM (KTS-CHL) CS",
-        sinName: "05:45 PM (KTS-CHL) CS",
-        startStation: "Kalutara South",
-        endStation: "Chilaw",
-        passingStations: []
-    },
-    {
-        engName: "06:35 PM (NGB-FOT)",
-        sinName: "06:35 PM (NGB-FOT)",
-        startStation: "Negombo",
-        endStation: "Colombo Fort",
-        passingStations: []
-    },
-    {
-        engName: "07:15 PM (NGB-FOT)",
-        sinName: "07:15 PM (NGB-FOT)",
-        startStation: "Negombo",
-        endStation: "Colombo Fort",
-        passingStations: []
-    },
-    {
-        engName: "08:20 PM (FOT-CHL) LC",
-        sinName: "08:20 PM (FOT-CHL) LC",
-        startStation: "Colombo Fort",
-        endStation: "Chilaw",
-        passingStations: []
-    },
+    }
 ];
 
 const trainSelector = document.querySelector("#trainSelector");
