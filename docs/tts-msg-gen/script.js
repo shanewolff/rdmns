@@ -329,8 +329,8 @@ const trains = [
 		]
 	},
 	{
-		engName: '04:45 PM (PND-CHL) Muthu Kumari',
-		sinName: '04:45 PM (PND-CHL) මුතු කුමාරි',
+		engName: '05:02 PM (PND-CHL) Muthu Kumari',
+		sinName: '05:02 PM (PND-CHL) මුතු කුමාරි',
 		startStation: 'Panadura',
 		endStation: 'Chilaw',
 		passingStations: ['Kelaniya', 'Wanawasala', 'Hunupitiya', 'Enderamulla', 'Horape']
